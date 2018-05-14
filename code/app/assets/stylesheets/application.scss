@@ -9,10 +9,9 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
  */
+
+@import "bootstrap";
 
 #bodyLanding {
     background: #EEE9D2;
@@ -28,29 +27,73 @@
 
 /* Sticky footer styles
 -------------------------------------------------- */
-  .footer {
+html {
+    position: relative;
+    min-height: 100%;
+  }
+body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
+}
+.footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 60px; /* Set the fixed height of the footer here */
     line-height: 60px; /* Vertically center the text there */
     background-color: #0B1D28;
-  }
-  
-  /* Custom page CSS
-  -------------------------------------------------- */
-  /* Not required for template or sticky footer method. */
-  
-  .container {
-    width: auto;
-    max-width: 680px;
-    padding: 0 15px;
-  }
+    text-align: left;
+}
 
-  #boxLanding {
-      margin-top: 10%;
-  }
+#boxLanding {
+    margin-top: 10%;
+}
 
-  p {
-      color: white;
-  }
+#signInForm {
+    color: white;
+    background: #98C0B7;
+    margin-top: 30px;
+    padding: 30px;
+    text-align: center;
+}
+
+h2 {
+    padding-top: 20px;
+}
+
+#teacherName {
+    color: white;
+    margin-right: 10px;
+}
+
+  /*flash*/
+.alert-error {
+    margin: 10px;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-alert {
+    margin: 10px;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-success {
+    margin: 10px;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.alert-notice {
+    margin: 10px;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card" id="signInForm">
+          <h2>Crear una cuenta</h2>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <div class="form-group">
+              <div class="field">
+                <%= f.label :email %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="field">
+                <%= f.label :password, "Contraseña"%>
+                  <% if @minimum_password_length %>
+                    <em>(
+                      <%= @minimum_password_length %> carácteres mínimos)</em>
+                    <% end %>
+                      <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="field">
+                <%= f.label :password_confirmation, "Confirmar contraseña" %>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+              </div>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Registrarme", class:"btn btn-dark"%>
+            </div>
+            <% end %>
+
+              <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -13,8 +13,15 @@
 </head>
 
 <body>
-    <%= render 'layouts/header' %>
-        <%= @courses.inspect %>
+        <% @courses.each do |course| %>
+            <h1>
+                <%= course.title %>
+            </h1>
+            <div>
+                <%= course.body %> -
+                    <%= link_to "Eliminar", course, method: :delete %>
+            </div>
+            <%end%>
 </body>
 
 </html>
