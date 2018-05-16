@@ -12,7 +12,7 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
         <% if teacher_signed_in? %>
-            <p class="my-2 my-sm-0" id="teacherName">Bienvenido <%= @teacher %></p>
+            <p class="my-2 my-sm-0" id="teacherName">Bienvenido <%= current_teacher.email %></p>
             <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger"%>
         <%else%>
             <%= link_to "Iniciar sesión", new_teacher_session_path, class:"btn btn-outline-success", id:"botonLanding" %>

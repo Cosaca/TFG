@@ -1,0 +1,17 @@
+<%= form_for(@courses) do |f| %>
+    <div class="form-group">
+        <div class="field">
+            <%= f.text_field :title, placeholder: "Título del curso", class:"form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="field">
+            <%= f.text_area :body, placeholder: "Ej. Este curso consiste en...", class:"form-control"%>
+        </div>
+    </div>
+
+    <div class="actions">
+        <%= f.submit "Guardar curso", class:"btn btn-dark"%>
+    </div>
+<% end %>

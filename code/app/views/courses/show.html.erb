@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CodeCharts</title>
+</head>
+
+<body>
+    <h1>
+        <%= @courses.title %>
+    </h1>
+    <div>
+        <%= @courses.body %>
+    </div>
+    <% unless @courses.teacher.nil? %>
+        <p>Creado por
+            <%= @courses.teacher.email %>
+        </p>
+    <%end%>
+</body>
+
+</html>
