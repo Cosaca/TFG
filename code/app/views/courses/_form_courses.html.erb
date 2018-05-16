@@ -14,5 +14,6 @@
     <div class="actions">
         <%= f.submit "Guardar curso", class:"btn btn-dark"%>
         <a href="/courses"><button type="button" class="btn btn-primary">Volver</button></a>
+        <%= link_to "Eliminar", @courses, method: :delete, class:"btn btn-danger"%>
     </div>
 <% end %>
