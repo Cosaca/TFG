@@ -18,7 +18,7 @@
 }
 
 #navbarLanding {
-    background: #0B1D28;
+    background: #022F2F;
 }
 
 #botonLanding {
@@ -40,7 +40,7 @@ body {
     width: 100%;
     height: 60px; /* Set the fixed height of the footer here */
     line-height: 60px; /* Vertically center the text there */
-    background-color: #0B1D28;
+    background-color: #022F2F;
     text-align: left;
 }
 
@@ -50,7 +50,7 @@ body {
 
 #signInForm {
     color: white;
-    background: #98C0B7;
+    background: #73A7A3;
     margin-top: 30px;
     padding: 30px;
     text-align: center;
@@ -65,8 +65,13 @@ h2 {
     margin-right: 10px;
 }
 
-.coursesTeachers {
-    border-radius: 10px;
+#tarjetas {
+    display: inline-block;
+    margin: 20px 0px 20px 0px;
+}
+
+#borde {
+    border: solid 1px #022F2F;
 }
 
   /*flash*/

@@ -22,7 +22,7 @@ class CoursesController < ApplicationController
         @courses = current_teacher.courses.new(course_params)
         
         if @courses.save
-            redirect_to @courses
+            redirect_to :courses
         else
             render :new
         end
@@ -32,15 +32,16 @@ class CoursesController < ApplicationController
         @courses = Course.find(params[:id])
 
         if @courses.update(course_params)
-            redirect_to @courses
+            redirect_to :courses
         else
-            render :edit
+            render :new
         end
     end
 
     def destroy
+        @courses = Course.find(params[:id])
         @courses.destroy
-        redirect_to courses_path
+        redirect_to :courses
     end
 
     private
