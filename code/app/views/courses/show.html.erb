@@ -9,6 +9,26 @@
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" id="navbarLanding">
+        <a class="navbar-brand" href="/">
+            <img src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo"> CodeCharts
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <p class="my-2 my-sm-0" id="teacherName">Bienvenido
+                    <%= current_teacher.email %>
+                </p>
+                <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger"%>
+            </form>
+    </nav>
     <h1>
         <%= @courses.title %>
     </h1>
@@ -19,7 +39,7 @@
         <p>Creado por
             <%= @courses.teacher.email %>
         </p>
-    <%end%>
+        <%end%>
 </body>
 
 </html>

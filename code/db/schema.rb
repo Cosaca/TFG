@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_14_175109) do
+ActiveRecord::Schema.define(version: 2018_05_16_155152) do
 
-  create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "courses", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.integer "users"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "teacher_id"
+    t.integer "teacher_id"
     t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
-  create_table "teachers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "teachers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -37,9 +37,10 @@ ActiveRecord::Schema.define(version: 2018_05_14_175109) do
     t.string "permission_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_teachers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "courses", "teachers"
 end

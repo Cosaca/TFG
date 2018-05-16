@@ -1,13 +1,42 @@
 <!doctype html>
 <html lang="es">
 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CodeCharts</title>
+</head>
+
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark" id="navbarLanding">
+    <a class="navbar-brand" href="/">
+      <img src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo"> CodeCharts
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <p class="my-2 my-sm-0" id="teacherName">Bienvenido
+          <%= current_teacher.email %>
+        </p>
+        <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger"%>
+      </form>
+  </nav>
+
+  <%= render 'layouts/messages' %>
+
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="card" id="signInForm">
           <h2>Crear un curso</h2>
-            <%= render 'form_courses' %>
+          <%= render 'form_courses' %>
         </div>
       </div>
     </div>
