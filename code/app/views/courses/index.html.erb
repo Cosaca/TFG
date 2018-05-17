@@ -37,34 +37,45 @@
     <%= render 'layouts/messages' %>
 
         <div class="container">
-            <div class="col-md-12">
-                <div class="row">
-                    <% @courses.each do |course| %>
-                        <div class="col-md-4">
-                            <div class="card text-center d-inline-block" id="tarjetas">
-                                <div class="card-header">
-                                    <strong>Curso</strong>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <%= course.title %>
-                                    </h5>
-                                    <p class="card-text">
-                                        <%= course.body %>
-                                    </p>
-                                    <a href="/courses/<%= course.id %>/edit" class="btn btn-warning">Editar</a>
-                                    <a href="/courses/<%= course.id %>" class="btn btn-info">Más información</a>
-                                </div>
-                                <div class="card-footer text-muted">
-                                    <p>Creado:
-                                        <%= course.created_at %>
-                                    </p>
+            <% if @courses.length != 0 %>
+                <div class="col-md-12">
+                    <div class="row">
+                        <% @courses.each do |course| %>
+                            <div class="col-md-4">
+                                <div class="card text-center d-inline-block" id="tarjetas">
+                                    <div class="card-header">
+                                        <strong>Curso</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= course.title %>
+                                        </h5>
+                                        <p class="card-text">
+                                            <%= course.body %>
+                                        </p>
+                                        <a href="/courses/<%= course.id %>/edit" class="btn btn-warning">Editar</a>
+                                        <a href="/courses/<%= course.id %>" class="btn btn-info">Más información</a>
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        <p>Creado:
+                                            <%= course.created_at %>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <%end%>
+                    </div>
                 </div>
-            </div>
+                <%else%>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert alert-info text-center" role="alert" id="alert">
+                                No tienes todavía ningún curso. Crea tu primer taller/curso haciendo click en
+                                <a href="/courses/new" class="alert-link">"Crear curso"</a>.
+                            </div>
+                        </div>
+                    </div>
+                <%end%>
         </div>
 </body>
 

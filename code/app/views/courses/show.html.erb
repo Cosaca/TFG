@@ -11,7 +11,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark" id="navbarLanding">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="/courses">
             <img src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo"> CodeCharts
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -23,16 +23,14 @@
             <ul class="navbar-nav mr-auto">
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <p class="my-2 my-sm-0" id="teacherName">Bienvenido
-                    <%= current_teacher.email %>
+                <p class="my-2 my-sm-0" id="teacherName">Conectado como
+                    <%= current_teacher.first_name %>
                 </p>
                 <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger"%>
             </form>
     </nav>
-    <div class="card text-center" id="infoCurso">
-        <div class="card-header">
-            <strong>Curso</strong>
-        </div>
+
+    <div class="card" id="infoCurso">
         <div class="card-body">
             <h5 class="card-title">
                 <%= @courses.title %>
@@ -40,18 +38,24 @@
             <p class="card-text">
                 <%= @courses.body %>
             </p>
-        </div>
-        <div class="card-footer text-muted">
             <p>Creado:
                 <%= @courses.created_at %>
             </p>
         </div>
     </div>
-    <% unless @courses.teacher.nil? %>
-        <p>Creado por
+
+    <div class="card" id="infoCurso">
+        <div class="card-body">
+            <a href="/users/new">
+                <button type="button" class="btn btn-outline-primary" id="botonLanding">Añadir alumno</button>
+            </a>
+        </div>
+    </div>
+    <%# unless @courses.teacher.nil? %>
+        <!--<p>Creado por
             <%= @courses.teacher.email %>
-        </p>
-        <%end%>
+        </p>-->
+        <%#end%>
 </body>
 
 </html>

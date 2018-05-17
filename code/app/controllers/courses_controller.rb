@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-    before_action :authenticate_teacher!, except: [:show, :index]
+    before_action :authenticate_teacher!
     
     def index
         @teacher = Teacher.find(current_teacher.id)
@@ -22,7 +22,7 @@ class CoursesController < ApplicationController
         @courses = current_teacher.courses.new(course_params)
         
         if @courses.save
-            redirect_to :courses
+            redirect_to :courses, notice: "El curso se ha creado con éxito"
         else
             render :new
         end
