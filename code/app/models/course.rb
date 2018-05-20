@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
-    belongs_to :teacher
     validates :title, presence: true, uniqueness: true
     validates :body, presence: true
 
+    belongs_to :teacher
     has_many :users
 end

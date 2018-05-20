@@ -32,9 +32,9 @@
 
     <div class="card" id="infoCurso">
         <div class="card-body">
-            <h5 class="card-title">
+            <h1 class="card-title">
                 <%= @courses.title %>
-            </h5>
+            </h1>
             <p class="card-text">
                 <%= @courses.body %>
             </p>
@@ -45,17 +45,70 @@
     </div>
 
     <div class="card" id="infoCurso">
-        <div class="card-body">
-            <a href="/users/new">
-                <button type="button" class="btn btn-outline-primary" id="botonLanding">Añadir alumno</button>
-            </a>
-        </div>
+        <% if @users.length != 0 %>
+            <div class="card-body">
+                <%= link_to "Añadir alumno", new_user_path(id: @courses), class:"btn btn-primary" %>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Género</th>
+                        <th scope="col">Total de líneas</th>
+                        <th scope="col">Niveles completados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @users.each do |student| %>
+                        <tr>
+                            <td>
+                                <%= student.first_name %>
+                            </td>
+                            <td>
+                                <%= student.last_name %>
+                            </td>
+                            <td>
+                                <%= student.age %>
+                            </td>
+                            <td>
+                                <%= student.gender %>
+                            </td>
+                            <td>
+                                <%= student.total_lines %>
+                            </td>
+                            <td>
+                                <%= student.completed_levels %>
+                            </td>
+                        </tr>
+                        <% end %>
+                </tbody>
+            </table>
+            <% else %>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-info text-center" role="alert" id="alert">
+                            No hay alumnos asignados a este curso. Para crearlos, pulse
+                            <%= link_to "Añadir alumno", new_user_path%>
+                        </div>
+                    </div>
+                </div>
+        <% end %>
     </div>
     <%# unless @courses.teacher.nil? %>
         <!--<p>Creado por
-            <%= @courses.teacher.email %>
+            <%#= @courses.email %>
         </p>-->
         <%#end%>
+
+            <div class="card" id="infoCurso">
+                <div class="card-body">
+                    <h1>Estadísticas</h1>
+                </div>
+                <div>
+                </div>
+            </div>
 </body>
 
 </html>

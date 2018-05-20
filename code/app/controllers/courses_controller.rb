@@ -8,14 +8,11 @@ class CoursesController < ApplicationController
 
     def show
         @courses = Course.find(params[:id])
+        @users = @courses.users
     end
 
     def new
         @courses = Course.new
-    end
-
-    def edit
-        @courses = Course.find(params[:id])
     end
 
     def create
@@ -26,6 +23,10 @@ class CoursesController < ApplicationController
         else
             render :new
         end
+    end
+
+    def edit
+        @courses = Course.find(params[:id])
     end
 
     def update
