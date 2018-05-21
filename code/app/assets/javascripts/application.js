@@ -18,3 +18,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require bootstrap
+//= require highcharts
+//= require chartkick

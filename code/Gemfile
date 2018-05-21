@@ -33,11 +33,18 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Simple autentication tool
 gem 'devise'
 
+# Gem used for Bootstrap style in HTML
 gem 'bootstrap', '~> 4.1.1'
 
 gem 'jquery-rails'
+
+# Gems used to display charts with Chartkick tool
+gem 'chartkick'
+gem 'highcharts-rails'
+gem 'groupdate'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

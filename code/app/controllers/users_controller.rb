@@ -18,6 +18,11 @@ class UsersController < ApplicationController
         end
     end
 
+    def destroy
+        @users = User.find(params[:id]).destroy
+        redirect_to :courses, notice: "El alumno se ha borrado con éxito"
+    end
+
     private
 
     def user_params
