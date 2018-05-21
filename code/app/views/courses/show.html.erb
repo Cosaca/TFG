@@ -49,7 +49,7 @@
             <div class="card-body">
                 <%= link_to "Añadir alumno", new_user_path(id: @courses), class:"btn btn-primary" %>
             </div>
-            <table class="table table-hover">
+            <table class="table table-hover text-center">
                 <thead>
                     <tr>
                         <th scope="col">Nombre</th>
@@ -90,7 +90,7 @@
                     <div class="col-12">
                         <div class="alert alert-info text-center" role="alert" id="alert">
                             No hay alumnos asignados a este curso. Para crearlos, pulse
-                            <%= link_to "Añadir alumno", new_user_path%>
+                            <%= link_to "Añadir alumno", new_user_path(id: @courses)%>
                         </div>
                     </div>
                 </div>

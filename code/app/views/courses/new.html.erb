@@ -23,7 +23,7 @@
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <p class="my-2 my-sm-0" id="teacherName">Conectado como
-          <%= current_teacher.name %>
+          <%= current_teacher.first_name %>
         </p>
         <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger"%>
       </form>
@@ -55,7 +55,7 @@
                     <button type="button" class="btn btn-primary">Volver</button>
                   </a>
               </div>
-              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
