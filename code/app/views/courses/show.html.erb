@@ -10,9 +10,9 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark" id="navbarLanding">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarLanding">
         <a class="navbar-brand" href="/courses">
-            <img src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo"> CodeCharts
+            <img src="/assets/logo_navbar.png" width="25" height="25" class="d-inline-block align-top" alt="logo"> CodeCharts
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
                 <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger"%>
             </form>
     </nav>
-
+    
     <div class="card" id="infoCurso">
         <div class="card-body">
             <h1 class="card-title">
@@ -52,6 +52,7 @@
             <div class="card-body">
                 <%= link_to "Añadir alumno", new_user_path(id: @courses), class:"btn btn-primary" %>
             </div>
+            <div class="table-responsive"></div>
             <table class="table table-striped table-hover text-center">
                 <thead>
                     <tr>
@@ -86,12 +87,13 @@
                                 <%= student.completed_levels %>
                             </td>
                             <td>
-                                <%= link_to "Eliminar", student, method: :delete, class:"btn btn-danger"%>
+                                <%= link_to "Eliminar", student, method: :delete, class:"btn btn-danger btn-sm"%>
                             </td>
                         </tr>
                         <% end %>
                 </tbody>
             </table>
+            </div>
             <% else %>
                 <div class="row">
                     <div class="col-12">
@@ -103,24 +105,20 @@
                 </div>
                 <% end %>
     </div>
-    <%# unless @courses.teacher.nil? %>
-        <!--<p>Creado por
-            <%#= @courses.email %>
-        </p>-->
-        <%#end%>
 
-            <% hash_ages = {} %>
-            <% hash_pupils = {} %>
-                <% @users.each do |stats_ages| %>
-                    <% hash_ages[stats_ages.age] = stats_ages.total_lines %>
-                    <% hash_pupils[stats_ages.id] = stats_ages.completed_levels %>
-                <% end%>    
-                <div class="card" id="infoCurso">
-                    <div class="card-body">
-                        <h1>Estadísticas</h1>
-                            <%= column_chart hash_ages, xtitle: "Edades alumnos", ytitle: "Total de líneas de código" %>
-                    </div>
-                </div>
+    <% hash_ages = {} %>
+    <% hash_pupils = {} %>
+    <% @users.each do |stats_ages| %>
+        <% hash_ages[stats_ages.age] = stats_ages.total_lines %>
+        <% hash_pupils[stats_ages.id] = stats_ages.completed_levels %>
+    <% end%>
+
+    <div class="card" id="infoCurso">
+        <div class="card-body">
+            <h1>Estadísticas</h1>
+                <%= column_chart hash_ages, xtitle: "Edades alumnos", ytitle: "Total de líneas de código" %>
+        </div>
+    </div>
 </body>
 
 </html>
