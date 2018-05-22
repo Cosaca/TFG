@@ -17,6 +17,25 @@
     margin-right: 5px;
 }
 
+#iconoTwitter {
+    margin-top: 20px;
+    float: right;
+}
+
+#iconoGithub {
+    margin: 20px 20px 0px 0px;
+    float: right;
+}
+
+#iconoLinkedin {
+    margin: 20px 20px 0px 0px;
+    float: right;
+}
+
+.fab::before {
+    color: grey;
+  }
+
 #signInForm {
     background: #D3D3D3;
     margin: 30px 0px 30px 0px;
