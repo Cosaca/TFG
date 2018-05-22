@@ -33,7 +33,7 @@ class CoursesController < ApplicationController
         @courses = Course.find(params[:id])
 
         if @courses.update(course_params)
-            redirect_to :courses
+            redirect_to @courses
         else
             render :new
         end

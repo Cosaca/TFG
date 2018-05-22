@@ -62,11 +62,19 @@
                 </div>
               </div>
 
-              <!--<div class="form-group">
+              <div class="form-group">
+                <div class="field">
+                <%= f.label :gender, "Género" %>
+                <br>
+                  <%= f.select(:gender, ["Chico", "Chica", "Otro"], {include_blank: true}, {class:"form-control"})%>
+                </div>
+              </div>
+
+              <div class="form-group">
                 <div class="field">
                 <%= f.label :age, "Edad" %>
                 <br>
-                  <%= f.text_field :age, class:"form-control"%>
+                  <%= f.number_field :age, class:"form-control"%>
                 </div>
               </div>
 
@@ -74,7 +82,7 @@
                 <div class="field">
                 <%= f.label :total_lines, "Líneas totales" %>
                 <br>
-                  <%= f.text_field :total_lines, class:"form-control"%>
+                  <%= f.number_field :total_lines, class:"form-control"%>
                 </div>
               </div>
 
@@ -82,9 +90,9 @@
                 <div class="field">
                 <%= f.label :completed_levels, "Niveles completados" %>
                 <br>
-                  <%= f.text_field :completed_levels, class:"form-control"%>
+                  <%= f.number_field :completed_levels, class:"form-control"%>
                 </div>
-              </div>-->
+              </div>
 
               <div class="actions">
                 <%= f.submit "Crear", class:"btn btn-dark"%>
