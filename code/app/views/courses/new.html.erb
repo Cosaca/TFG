@@ -35,8 +35,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 offset-md-3">
-          <div class="card" id="signInForm">
-            <h2>Crear un curso</h2>
+        <div class="shadow p-3 mb-5 bg-light rounded mt-md-5">
+            <h2 class="text-center">Crear un curso</h2>
             <%= form_for(@courses) do |f| %>
               <div class="form-group">
                 <div class="field">
@@ -50,7 +50,7 @@
                 </div>
               </div>
 
-              <div class="actions">
+              <div class="actions text-center">
                 <%= f.submit "Guardar curso", class:"btn btn-primary btn-sm"%>
                   <a href="/courses">
                     <button type="button" class="btn btn-dark btn-sm">Volver</button>

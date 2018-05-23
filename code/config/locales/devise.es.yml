@@ -54,3 +54,10 @@ es:
         subject: 'Instrucciones de cambio de contraseña'
       unlock_instructions:
         subject: 'Instrucciones de desbloqueo'
+  
+  activerecord:
+    errors:
+      models:
+        teacher:
+          attributes:
+            current_password

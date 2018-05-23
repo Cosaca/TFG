@@ -14,22 +14,22 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 offset-md-3">
-          <div class="card" id="signInForm">
-            <h2>¿Has olvidado tu contraseña?</h2>
+          <div class="shadow p-3 mb-5 bg-light rounded mt-md-5">
+            <h2 class="text-center">¿Has olvidado tu contraseña?</h2>
 
             <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
               <%= devise_error_messages! %>
 
                 <div class="form-group">
                   <div class="field">
-                    <%= f.label :email %>
+                    <%= f.label :email, "Correo electrónico" %>
                       <br/>
                       <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
                   </div>
                 </div>
 
                 <div class="actions">
-                  <%= f.submit "Enviar correo de confirmación", class:"btn btn-dark" %>
+                  <%= f.submit "Enviar correo de confirmación", class:"btn btn-primary" %>
                 </div>
                 <% end %>
 
