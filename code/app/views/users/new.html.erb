@@ -95,10 +95,8 @@
               </div>
 
               <div class="actions">
-                <%= f.submit "Crear", class:"btn btn-dark"%>
-                  <a href="/courses">
-                    <button type="button" class="btn btn-primary">Volver</button>
-                  </a>
+                <%= f.submit "Crear", class:"btn btn-primary btn-sm"%>
+                <%= link_to "Volver", @course, class:"btn btn-dark btn-sm"%>
               </div>
               <% end %>
           </div>

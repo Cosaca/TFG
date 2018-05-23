@@ -25,7 +25,8 @@
         <p class="my-2 my-sm-0" id="teacherName">Conectado como
           <%= current_teacher.first_name %>
         </p>
-        <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger"%>
+        <%= link_to "Editar perfil", edit_teacher_registration_path, class:"btn btn-outline-info btn-sm", id:"botonNav"%>
+        <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger btn-sm"%>
       </form>
   </nav>
 
@@ -50,9 +51,9 @@
               </div>
 
               <div class="actions">
-                <%= f.submit "Guardar curso", class:"btn btn-dark"%>
+                <%= f.submit "Guardar curso", class:"btn btn-primary btn-sm"%>
                   <a href="/courses">
-                    <button type="button" class="btn btn-primary">Volver</button>
+                    <button type="button" class="btn btn-dark btn-sm">Volver</button>
                   </a>
               </div>
             <% end %>

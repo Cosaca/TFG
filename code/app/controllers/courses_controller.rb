@@ -9,6 +9,14 @@ class CoursesController < ApplicationController
     def show
         @courses = Course.find(params[:id])
         @users = @courses.users
+
+        # Cálculo de los gráficos de estadísticas
+        @hash_ages = {}
+        @hash_pupils = {}
+        @users.each do |stats_ages|
+            @hash_ages[stats_ages.age] = stats_ages.total_lines
+            @hash_pupils[stats_ages.username] = stats_ages.completed_levels
+        end
     end
 
     def new
@@ -48,10 +56,6 @@ class CoursesController < ApplicationController
 
     def set_article
         @courses = Course.find(params[:id])
-    end
-
-    def validate_user
-        redirect_to new_teacher_session_path, notice: "Necesitas iniciar sesión"
     end
     
     def course_params

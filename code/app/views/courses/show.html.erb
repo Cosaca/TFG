@@ -26,7 +26,8 @@
                 <p class="my-2 my-sm-0" id="teacherName">Conectado como
                     <%= current_teacher.first_name %>
                 </p>
-                <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger"%>
+                <%= link_to "Editar perfil", edit_teacher_registration_path, class:"btn btn-outline-info btn-sm", id:"botonNav"%>
+                    <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger btn-sm"%>
             </form>
     </nav>
 
@@ -54,7 +55,7 @@
                         Creado por:
                         <%= @courses.teacher.first_name %>
                     </p>
-                    <%= link_to edit_course_path(id: @courses), class:"btn btn-warning" do %>
+                    <%= link_to edit_course_path(id: @courses), class:"btn btn-warning btn-sm" do %>
                         Editar
                         <i class="far fa-edit"></i>
                         </a>
@@ -67,7 +68,7 @@
                     <%= render 'layouts/messages' %>
                         <h2 class="font-weight-light">
                             Alumnos matriculados
-                            <%= link_to "Añadir alumno", new_user_path(id: @courses), class:"btn btn-outline-primary float-right" %>
+                            <%= link_to "Añadir alumno", new_user_path(id: @courses), class:"btn btn-outline-primary btn-sm float-right" %>
                         </h2>
                         <% if @users.length != 0 %>
                             <div class="table-responsive">
@@ -104,21 +105,24 @@
                                                     <%= link_to "Eliminar", user_path(id: student.id, params: {course_id: @courses.id}), method: :delete, class:"btn btn-danger btn-sm"%>
                                                 </td>
                                             </tr>
-                                        <% end %>
+                                            <% end %>
                                     </tbody>
                                 </table>
                             </div>
-                    </div>
+                </div>
                 <div class="shadow p-3 mb-5 bg-white rounded">
-                <% hash_ages = {} %>
-                <% hash_pupils = {} %>
-                <% @users.each do |stats_ages| %>
-                    <% hash_ages[stats_ages.age] = stats_ages.total_lines %>
-                    <% hash_pupils[stats_ages.id] = stats_ages.completed_levels %>
-                <% end%>
-
-                <h2 class="font-weight-light">Estadísticas</h2>
-                <%= column_chart hash_ages, xtitle: "Edades alumnos", ytitle: "Total de líneas de código" %>
+                    <h2 class="font-weight-light">Estadísticas</h2>
+                    <h4 class="font-weight-light">Líneas de código por edades</h4>
+                    <br>
+                    <%= column_chart @hash_ages, xtitle: "Edades alumnos", ytitle: "Total de líneas de código" %>
+                        <br>
+                        <h4 class="font-weight-light">Niveles completados por alumnos</h4>
+                        <br>
+                        <%= bar_chart @hash_pupils, xtitle: "Alumnos", ytitle: "Niveles completados", colors: ["#FFAE0D"] %>
+                            <br>
+                            <h4 class="font-weight-light">Cantidad de chicos y chicas</h4>
+                            <br>
+                            <%= pie_chart @users.group(:gender).count, colors: ["#b00", "#3ECC00"] %>
                 </div>
             </div>
             <% else %>
@@ -128,15 +132,15 @@
                         <strong>Añadir alumno</strong>
                     </div>
                 </div>
-                </div>
-                    <div class="shadow p-3 mb-5 bg-white rounded">
-                        <h2 class="font-weight-light">Estadísticas</h2>
-                    <div class="alert alert-info text-center" role="alert" id="alert">
-                    Para poder obtener una visualización de las estadísticas, debe añadir alumnos previamente
+        </div>
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <h2 class="font-weight-light">Estadísticas</h2>
+            <div class="alert alert-info text-center" role="alert" id="alert">
+                Para poder obtener una visualización de las estadísticas, debe añadir alumnos previamente
             </div>
         </div>
 
-    <% end %>
+        <% end %>
     </div>
     </div>
     </div>
