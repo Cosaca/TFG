@@ -6,6 +6,6 @@ class Teacher < ApplicationRecord
 
   devise :timeoutable, :timeout_in => 30.minutes
 
-  has_many :courses
-  has_many :users
+  has_many :courses, dependent: :destroy
+  has_many :users, dependent: :destroy
 end

@@ -111,7 +111,11 @@
                             </div>
                 </div>
                 <div class="shadow p-3 mb-5 bg-white rounded">
-                    <h2 class="font-weight-light">Estadísticas<%= link_to "Descargar", new_user_path(id: @courses), class:"btn btn-outline-primary btn-sm float-right disabled"%></h2>
+                    <h2 class="font-weight-light">Estadísticas
+                        <%= link_to new_user_path(id: @courses), class:"btn btn-outline-primary btn-sm float-right disabled" do %>
+                        Descargar <i class="fas fa-arrow-down"></i>
+                        <% end %>
+                    </h2>
                     <h4 class="font-weight-light">Líneas de código por edades</h4>
                     <br>
                     <%= column_chart @hash_ages, xtitle: "Edades alumnos", ytitle: "Total de líneas de código" %>

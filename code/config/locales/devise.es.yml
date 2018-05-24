@@ -58,6 +58,17 @@ es:
   activerecord:
     errors:
       models:
+        course:
+          attributes:
+            body:
+              blank: 'No se ha introducido una descripción'
+            title:
+              blank: 'No se ha introducido un título'
+              taken: 'Hay otro curso con otro nombre'
         teacher:
           attributes:
-            current_password
+            current_password: 'Contraseña actual incorrecta'
+            email: 
+              blank: 'El correo electrónico no puede estar vacío'
+            password:
+              blank: 'La contraseña no puede estar vacía'

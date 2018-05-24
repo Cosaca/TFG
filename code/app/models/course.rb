@@ -4,4 +4,5 @@ class Course < ApplicationRecord
 
     belongs_to :teacher
     has_many :users
+    has_many :sections
 end
