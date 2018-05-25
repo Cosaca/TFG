@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cursos - CodeCharts</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-secondary" id="navbarLanding">
+        <a class="navbar-brand" href="/courses">
+            <img src="/assets/logo_navbar.png" width="25" height="25" class="d-inline-block align-top" alt="logo"> CodeCharts
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <p class="my-2 my-sm-0" id="teacherName">Conectado como
+                    <%= current_teacher.first_name %>
+                </p>
+                <%= link_to "Editar perfil", edit_teacher_registration_path, class:"btn btn-outline-info btn-sm", id:"botonNav"%>
+                    <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger btn-sm"%>
+            </form>
+    </nav>
+
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    <h2 class="font-weight-light">
+                        Detalles del curso
+                    </h2>
+                    <h3 class="font-weight-light">
+                        <strong>Título</strong>
+                    </h3 class="font-weight-light">
+                    <p class="font-weight-light">
+                        <%= @courses.title %>
+                    </p>
+                    <h3 class="font-weight-light">
+                        <strong>Descripción</strong>
+                    </h3>
+                    <p class="font-weight-light">
+                        <%= @courses.body %>
+                    </p>
+                    <p class="text-muted">
+                        Creado por:
+                        <%= @courses.teacher.first_name %>
+                    </p>
+                    <%= link_to edit_course_path(id: @courses), class:"btn btn-warning btn-sm" do %>
+                        Editar
+                        <i class="far fa-edit"></i>
+                        <% end %>
+                    <%= link_to new_section_path(id: @sections), class:"btn btn-info btn-sm" do %>
+                        Añadir sección
+                        <i class="fas fa-plus"></i>
+                        <% end %>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    <%= render 'layouts/messages' %>
+                        <h2 class="font-weight-light">
+                            Secciones del curso
+                            <%= link_to "Añadir alumno", new_user_path(id: @courses), class:"btn btn-outline-primary btn-sm float-right" %>
+                        </h2>
+                        <% if @users.length != 0 %>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nombre de usuario</th>
+                                            <th scope="col">Edad</th>
+                                            <th scope="col">Género</th>
+                                            <th scope="col">Total de líneas</th>
+                                            <th scope="col">Niveles completados</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% @users.each do |student| %>
+                                            <tr>
+                                                <td>
+                                                    <%= student.username %>
+                                                </td>
+                                                <td>
+                                                    <%= student.age %>
+                                                </td>
+                                                <td>
+                                                    <%= student.gender %>
+                                                </td>
+                                                <td>
+                                                    <%= student.total_lines %>
+                                                </td>
+                                                <td>
+                                                    <%= student.completed_levels %>
+                                                </td>
+                                                <td>
+                                                    <%= link_to "Eliminar", user_path(id: student.id, params: {course_id: @courses.id}), method: :delete, class:"btn btn-danger btn-sm"%>
+                                                </td>
+                                            </tr>
+                                            <% end %>
+                                    </tbody>
+                                </table>
+                            </div>
+                </div>
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    <h2 class="font-weight-light">Estadísticas
+                        <%= link_to new_user_path(id: @courses), class:"btn btn-outline-primary btn-sm float-right disabled" do %>
+                        Descargar <i class="fas fa-arrow-down"></i>
+                        <% end %>
+                    </h2>
+                    <h4 class="font-weight-light">Líneas de código por edades</h4>
+                    <br>
+                    <%= column_chart @hash_ages, xtitle: "Edades alumnos", ytitle: "Total de líneas de código" %>
+                        <br>
+                        <h4 class="font-weight-light">Niveles completados por alumnos</h4>
+                        <br>
+                        <%= bar_chart @hash_pupils, xtitle: "Alumnos", ytitle: "Niveles completados", colors: ["#FFAE0D"] %>
+                            <br>
+                            <h4 class="font-weight-light">Cantidad de chicos y chicas</h4>
+                            <br>
+                            <%= pie_chart @users.group(:gender).count, colors: ["#b00", "#3ECC00"] %>
+                </div>
+            </div>
+            <% else %>
+                <div class="col-md-12">
+                    <div class="alert alert-info text-center" role="alert" id="alert">
+                        No hay alumnos matriculados en este curso. Para asignarlos, pulse
+                        <strong>Añadir alumno</strong>
+                    </div>
+                </div>
+        </div>
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <h2 class="font-weight-light">Estadísticas</h2>
+            <div class="alert alert-info text-center" role="alert" id="alert">
+                Para poder obtener una visualización de las estadísticas, debe añadir alumnos previamente
+            </div>
+        </div>
+
+        <% end %>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

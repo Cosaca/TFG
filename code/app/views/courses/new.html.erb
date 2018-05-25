@@ -26,24 +26,24 @@
           <%= current_teacher.first_name %>
         </p>
         <%= link_to "Editar perfil", edit_teacher_registration_path, class:"btn btn-outline-info btn-sm", id:"botonNav"%>
-          <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger btn-sm"%>
+        <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger btn-sm"%>
       </form>
   </nav>
 
-  <% if @courses.errors.any? %>
+  <!--<%# if @courses.errors.any? %>
     <div id="error_explanation">
     <div class="alert alert-danger">
       <ul>
-        <% @courses.errors.full_messages.each do |msg| %>
+        <%# @courses.errors.full_messages.each do |msg| %>
           <li>
-            <%= msg %>
+            <%#= msg %>
           </li>
-          <% end %>
+          <%# end %>
       </ul>
       </div>
     </div>
     <br>
-    <% end %>
+    <%# end %>-->
 
       <div class="container">
         <div class="row">
@@ -65,9 +65,7 @@
 
                 <div class="actions text-center">
                   <%= f.submit "Guardar curso", class:"btn btn-primary btn-sm"%>
-                    <a href="/courses">
-                      <button type="button" class="btn btn-dark btn-sm">Volver</button>
-                    </a>
+                  <%= link_to "Volver", :courses, class:"btn btn-dark btn-sm"%>
                 </div>
                 <% end %>
             </div>

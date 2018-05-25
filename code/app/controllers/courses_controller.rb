@@ -8,15 +8,16 @@ class CoursesController < ApplicationController
 
     def show
         @courses = Course.find(params[:id])
-        @users = @courses.users
+        #@users = @courses.users
+        @sections = @courses.sections
 
         # Cálculo de los gráficos de estadísticas
-        @hash_ages = {}
-        @hash_pupils = {}
-        @users.each do |stats_ages|
-            @hash_ages[stats_ages.age] = stats_ages.total_lines
-            @hash_pupils[stats_ages.username] = stats_ages.completed_levels
-        end
+        #@hash_ages = {}
+        #@hash_pupils = {}
+        #@users.each do |stats_ages|
+            #@hash_ages[stats_ages.age] = stats_ages.total_lines
+            #@hash_pupils[stats_ages.username] = stats_ages.completed_levels
+        #end
     end
 
     def new

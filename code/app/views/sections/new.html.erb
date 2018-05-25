@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Nuevo curso - CodeCharts</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarLanding">
+    <a class="navbar-brand" href="/courses">
+      <img src="/assets/logo_navbar.png" width="25" height="25" class="d-inline-block align-top" alt="logo"> CodeCharts
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <p class="my-2 my-sm-0" id="teacherName">Conectado como
+          <%= current_teacher.first_name %>
+        </p>
+        <%= link_to "Editar perfil", edit_teacher_registration_path, class:"btn btn-outline-info btn-sm", id:"botonNav"%>
+          <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger btn-sm"%>
+      </form>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="shadow p-3 mb-5 bg-light rounded mt-md-5">
+          <h2 class="text-center">Crear una sección</h2>
+          <%= form_for(@section) do |f| %>
+            <%= hidden_field_tag "curso", @course.id %>
+              <div class="form-group">
+                <div class="field">
+                  <%= f.text_field :name, placeholder: "Título de la sección", class:"form-control"%>
+                </div>
+              </div>
+
+              <div class="actions text-center">
+                <%= f.submit "Guardar sección", class:"btn btn-primary btn-sm"%>
+                  <%= link_to "Volver", :back, class:"btn btn-dark btn-sm"%>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
