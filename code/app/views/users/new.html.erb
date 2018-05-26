@@ -37,7 +37,7 @@
           <div class="shadow p-3 mb-5 bg-light rounded mt-md-5">
             <h2 class="text-center">Datos del alumno</h2>
             <%= form_for @user do |f| %>
-              <%= hidden_field_tag "curso", @course.id %>
+              <%= hidden_field_tag "seccion", @section.id %>
                 <div class="form-group">
                   <div class="field">
                     <%= f.label :first_name, "Nombre" %>
@@ -96,7 +96,7 @@
 
                 <div class="actions text-center">
                   <%= f.submit "Crear", class:"btn btn-primary btn-sm"%>
-                    <%= link_to "Volver", @course, class:"btn btn-dark btn-sm"%>
+                    <%= link_to "Volver", @section, class:"btn btn-dark btn-sm"%>
                 </div>
                 <% end %>
           </div>

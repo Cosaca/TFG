@@ -21,6 +21,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                <%= link_to "Cursos", :courses, class:"btn btn-outline-info btn-sm", id:"botonNav"%>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <p class="my-2 my-sm-0" id="teacherName">Conectado como
@@ -34,72 +35,84 @@
     <div class="container">
         <br>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-12">
                 <div class="shadow p-3 mb-5 bg-white rounded">
+                <%= render 'layouts/messages' %>
                     <h2 class="font-weight-light">
-                        Detalles del curso
+                        Alumnos matriculados
+                        <%= link_to "Añadir alumno", new_user_path(id: @sections.id), class:"btn btn-outline-primary btn-sm float-right"%>
                     </h2>
-                    <h3 class="font-weight-light">
-                        <strong>Título</strong>
-                    </h3 class="font-weight-light">
-                    <p class="font-weight-light">
-                        <%= @courses.title %>
-                    </p>
-                    <h3 class="font-weight-light">
-                        <strong>Descripción</strong>
-                    </h3>
-                    <p class="font-weight-light">
-                        <%= @courses.body %>
-                    </p>
-                    <p class="text-muted">
-                        Creado por:
-                        <%= @courses.teacher.first_name %>
-                    </p>
-                    <%= link_to edit_course_path(id: @courses), class:"btn btn-warning btn-sm" do %>
-                        Editar
-                        <i class="far fa-edit"></i>
-                    <% end %>
-                    <%= link_to new_section_path(id: @courses), class:"btn btn-info btn-sm" do %>
-                        Añadir sección
-                        <i class="fas fa-plus"></i>
-                    <% end %>
+                    <% if @users.length != 0 %>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre de usuario</th>
+                                        <th scope="col">Edad</th>
+                                        <th scope="col">Género</th>
+                                        <th scope="col">Total de líneas</th>
+                                        <th scope="col">Niveles completados</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @users.each do |student| %>
+                                        <tr>
+                                            <td>
+                                                <%= student.username %>
+                                            </td>
+                                            <td>
+                                                <%= student.age %>
+                                            </td>
+                                            <td>
+                                                <%= student.gender %>
+                                            </td>
+                                            <td>
+                                                <%= student.total_lines %>
+                                            </td>
+                                            <td>
+                                                <%= student.completed_levels %>
+                                            </td>
+                                            <td>
+                                                <%= link_to "Eliminar", user_path(id: student.id, params: {section_id: @sections.id}), method: :delete, class:"btn btn-danger btn-sm"%>
+                                            </td>
+                                        </tr>
+                                        <% end %>
+                                </tbody>
+                            </table>
+                        </div>
                 </div>
-            </div>
-            <div class="col-md-9">
-                <% if @sections.length == 0 %>
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    <h2 class="font-weight-light">Subir fichero con información de alumnos</h2>
+                    <p class="font-weight-light">Esta opción le permite al profesor subir un
+                        <strong>fichero</strong> (extensión .txt) en el que se recogen todos los datos asociados a los alumnos en
+                        esta sección</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Example file input</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div>
+                    </form>
+                </div>
+                <% else %>
                     <div class="alert alert-info text-center" role="alert" id="alert">
-                        No hay secciones creadas para este curso. Para crearlos, pulse
-                        <strong>Añadir sección</strong>
+                        No hay alumnos matriculados todavía. Para introducirlos haga click en
+                        <strong>Añadir alumno</strong>
                     </div>
-                    <div class="alert alert-info text-center" role="alert" id="alert">
-                        Para poder obtener una visualización de las estadísticas, debe añadir secciones previamente
                     </div>
-                    <% else %>
                     <div class="shadow p-3 mb-5 bg-white rounded">
-                      <%= render 'layouts/messages' %>
-                        <h2 class="font-weight-light">
-                            Secciones disponibles
-                        </h2>
-                        <br>
-                        <% @sections.each do |sections_course|%>
-                            <div class="card">
-                                <div class="card-body bg-light">
-                                    <h3 class="font-weight-light">
-                                        <%= sections_course.name %>
-                                        <%= link_to "Eliminar", section_path(id: sections_course.id, params: {course_id: @courses.id}), method: :delete, class:"btn btn-outline-danger btn-sm float-right"%>
-                                        <%= link_to "Administrar alumnos", new_user_path, class:"btn btn-outline-success btn-sm float-right mr-md-1"%>
-                                    </h3>
-                                </div>
-                            </div>
-                            <br>
-                            <% end %>
+                    <h2 class="font-weight-light">Subir fichero con información de alumnos</h2>
+                    <p class="font-weight-light">Esta opción le permite al profesor subir un
+                        <strong>fichero</strong> (extensión .txt) en el que se recogen todos los datos asociados a los alumnos en
+                        esta sección</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Example file input</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
                         </div>
-                        <div class="shadow p-3 mb-5 bg-white rounded">
-                            <h2 class="font-weight-light">
-                                Estadísticas
-                            </h2>
-                        </div>
-                <%end%>
+                    </form>
+                </div>
+                    <% end %>
             </div>
         </div>
     </div>

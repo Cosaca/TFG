@@ -21,6 +21,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                <%= link_to "Cursos", :courses, class:"btn btn-outline-info btn-sm", id:"botonNav"%>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <p class="my-2 my-sm-0" id="teacherName">Conectado como
@@ -87,12 +88,12 @@
                                     <h3 class="font-weight-light">
                                         <%= sections_course.name %>
                                         <%= link_to "Eliminar", section_path(id: sections_course.id, params: {course_id: @courses.id}), method: :delete, class:"btn btn-outline-danger btn-sm float-right"%>
-                                        <%= link_to "Administrar alumnos", new_user_path, class:"btn btn-outline-success btn-sm float-right mr-md-1"%>
+                                        <%= link_to "Administrar alumnos", section_path(id: sections_course.id, params: {course_id: @courses.id}), class:"btn btn-outline-success btn-sm float-right mr-md-1"%>
                                     </h3>
                                 </div>
                             </div>
                             <br>
-                            <% end %>
+                        <% end %>
                         </div>
                         <div class="shadow p-3 mb-5 bg-white rounded">
                             <h2 class="font-weight-light">

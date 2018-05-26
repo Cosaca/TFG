@@ -6,6 +6,11 @@ class SectionsController < ApplicationController
         @section = Section.new
     end
 
+    def show
+        @sections = Section.find(params[:id])
+        @users = @sections.users
+    end
+
     def create
         @course = Course.find(params[:curso])
 
@@ -19,10 +24,11 @@ class SectionsController < ApplicationController
     end
 
     def destroy
+        @course = Course.find(params[:course_id])
         @section = Section.find(params[:course_id])
 
         @sections = Section.find(params[:id]).destroy
-        redirect_to @course, notice: "La sección se ha creado con éxito"
+        redirect_to @course, notice: "La sección se ha borrado con éxito"
     end
 
     private
