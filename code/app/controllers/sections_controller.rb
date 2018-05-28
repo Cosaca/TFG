@@ -9,6 +9,16 @@ class SectionsController < ApplicationController
     def show
         @sections = Section.find(params[:id])
         @users = @sections.users
+
+        @users = @users.paginate(page: params[:page], :per_page => 10)
+
+        # Cálculo de los gráficos de estadísticas
+        @hash_ages = {}
+        @hash_pupils = {}
+        @users.each do |stats_ages|
+            @hash_ages[stats_ages.age] = stats_ages.total_lines
+            @hash_pupils[stats_ages.username] = stats_ages.completed_levels
+        end
     end
 
     def create
@@ -28,7 +38,7 @@ class SectionsController < ApplicationController
 
         file = params[:file].read
         data = JSON.parse(file)
-
+        
         data.each do |user|
             @user = User.new(first_name: user["name"]["first"], last_name: user["name"]["last"], username: user["username"], age: user["age"],
             gender: user["gender"], total_lines: user["total_lines"], completed_levels: user["completed_levels"], section_id: @section.id).save
@@ -37,7 +47,6 @@ class SectionsController < ApplicationController
 
     def destroy
         @course = Course.find(params[:course_id])
-        @section = Section.find(params[:course_id])
 
         @sections = Section.find(params[:id]).destroy
         redirect_to @course, notice: "La sección se ha borrado con éxito"

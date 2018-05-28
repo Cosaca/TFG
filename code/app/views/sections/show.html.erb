@@ -43,44 +43,45 @@
                             <%= link_to "Añadir alumno", new_user_path(id: @sections.id), class:"btn btn-outline-primary btn-sm float-right"%>
                         </h2>
                         <% if @users.length != 0 %>
-                            <div class="table-responsive">
-                                <table class="table table-striped table-hover text-center">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Nombre de usuario</th>
-                                            <th scope="col">Edad</th>
-                                            <th scope="col">Género</th>
-                                            <th scope="col">Total de líneas</th>
-                                            <th scope="col">Niveles completados</th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <% @users.each do |student| %>
+                            <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover text-center">
+                                        <thead>
                                             <tr>
-                                                <td>
-                                                    <%= student.username %>
-                                                </td>
-                                                <td>
-                                                    <%= student.age %>
-                                                </td>
-                                                <td>
-                                                    <%= student.gender %>
-                                                </td>
-                                                <td>
-                                                    <%= student.total_lines %>
-                                                </td>
-                                                <td>
-                                                    <%= student.completed_levels %>
-                                                </td>
-                                                <td>
-                                                    <%= link_to "Eliminar", user_path(id: student.id, params: {section_id: @sections.id}), method: :delete, class:"btn btn-danger btn-sm"%>
-                                                </td>
+                                                <th scope="col">Nombre de usuario</th>
+                                                <th scope="col">Edad</th>
+                                                <th scope="col">Género</th>
+                                                <th scope="col">Total de líneas</th>
+                                                <th scope="col">Niveles completados</th>
+                                                <th scope="col"></th>
                                             </tr>
-                                            <% end %>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        </thead>
+                                        <tbody>
+                                            <% @users.each do |student| %>
+                                                <tr>
+                                                    <td>
+                                                        <%= student.username %>
+                                                    </td>
+                                                    <td>
+                                                        <%= student.age %>
+                                                    </td>
+                                                    <td>
+                                                        <%= student.gender %>
+                                                    </td>
+                                                    <td>
+                                                        <%= student.total_lines %>
+                                                    </td>
+                                                    <td>
+                                                        <%= student.completed_levels %>
+                                                    </td>
+                                                    <td>
+                                                        <%= link_to "Eliminar", user_path(id: student.id, params: {section_id: @sections.id}), method: :delete, class:"btn btn-danger btn-sm"%>
+                                                    </td>
+                                                </tr>
+                                                <% end %>
+                                        </tbody>
+                                    </table>
+                                </div>
                 </div>
                 <div class="shadow p-3 mb-5 bg-white rounded">
                     <h2 class="font-weight-light">Subir fichero con información de alumnos</h2>
@@ -90,10 +91,29 @@
                     <div class="custom-file">
                         <%= form_tag({action: :upload, controller: :sections}, multipart: true) do %>
                             <%= hidden_field_tag "seccion", @sections.id %>
-                            <%= file_field_tag 'file' %>
-                            <%= submit_tag 'Cargar', class:"float-right" %>
-                        <% end %>
+                                <%= file_field_tag 'file' %>
+                                    <%= submit_tag 'Cargar', class:"float-right" %>
+                                        <% end %>
                     </div>
+                </div>
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    <h2 class="font-weight-light">Estadísticas
+                    <%= link_to new_user_path(id: @courses), class:"btn btn-outline-primary btn-sm float-right disabled" do %>
+                        Descargar
+                        <i class="fas fa-arrow-down"></i>
+                        <% end %>
+                    </h2>
+                    <h4 class="font-weight-light">Líneas de código por edades</h4>
+                    <br>
+                    <%= column_chart @hash_ages, xtitle: "Edades alumnos", ytitle: "Total de líneas de código", colors: ["#0064FF"] %>
+                        <br>
+                        <h4 class="font-weight-light">Niveles completados por alumnos</h4>
+                        <br>
+                        <%= line_chart @hash_pupils, xtitle: "Alumnos", ytitle: "Niveles completados", colors: ["#FFAE0D"] %>
+                            <br>
+                            <h4 class="font-weight-light">Cantidad de chicos y chicas</h4>
+                            <br>
+                            <%= pie_chart @users.group(:gender).count, colors: ["#BA2B00", "#00BD6A"] %>
                 </div>
                 <% else %>
                     <div class="alert alert-info text-center" role="alert" id="alert">
@@ -110,9 +130,9 @@
                 <div class="custom-file">
                     <%= form_tag({action: :upload, controller: :sections}, multipart: true) do %>
                         <%= hidden_field_tag "seccion", @sections.id %>
-                        <%= file_field_tag 'file' %>
-                        <%= submit_tag 'Cargar', class:"float-right" %>
-                    <% end %>
+                            <%= file_field_tag 'file' %>
+                                <%= submit_tag 'Cargar', class:"float-right" %>
+                                    <% end %>
                 </div>
             </div>
             <% end %>

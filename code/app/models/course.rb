@@ -3,5 +3,5 @@ class Course < ApplicationRecord
     validates :body, presence: true
 
     belongs_to :teacher
-    has_many :sections
+    has_many :sections, dependent: :destroy
 end
