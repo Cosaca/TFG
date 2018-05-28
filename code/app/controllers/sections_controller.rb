@@ -23,6 +23,18 @@ class SectionsController < ApplicationController
         end
     end
 
+    def upload
+        @section = Section.find(params[:seccion])
+
+        file = params[:file].read
+        data = JSON.parse(file)
+
+        data.each do |user|
+            @user = User.new(first_name: user["name"]["first"], last_name: user["name"]["last"], username: user["username"], age: user["age"],
+            gender: user["gender"], total_lines: user["total_lines"], completed_levels: user["completed_levels"], section_id: @section.id).save
+        end
+    end
+
     def destroy
         @course = Course.find(params[:course_id])
         @section = Section.find(params[:course_id])

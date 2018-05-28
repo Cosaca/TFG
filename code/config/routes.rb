@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   resources :courses
 
-  resources :users
+  resources :users 
 
-  resources :sections
+  resources :sections do 
+    collection { post :upload }
+  end
   
   root 'landing#index'
 end
