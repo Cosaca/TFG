@@ -40,7 +40,7 @@
                     <%= render 'layouts/messages' %>
                         <h2 class="font-weight-light">
                             Alumnos matriculados
-                            <%= link_to "Añadir alumno", new_user_path(id: @sections.id), class:"btn btn-outline-primary btn-sm float-right"%>
+                            <%= link_to "Añadir alumno", new_user_path(id: @section.id), class:"btn btn-outline-primary btn-sm float-right"%>
                         </h2>
                         <% if @users.length != 0 %>
                             <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
@@ -75,7 +75,7 @@
                                                         <%= student.completed_levels %>
                                                     </td>
                                                     <td>
-                                                        <%= link_to "Eliminar", user_path(id: student.id, params: {section_id: @sections.id}), method: :delete, class:"btn btn-danger btn-sm"%>
+                                                        <%= link_to "Eliminar", user_path(id: student.id, params: {section_id: @section.id}), method: :delete, class:"btn btn-danger btn-sm"%>
                                                     </td>
                                                 </tr>
                                                 <% end %>
@@ -90,7 +90,7 @@
                         esta sección</p>
                     <div class="custom-file">
                         <%= form_tag({action: :upload, controller: :sections}, multipart: true) do %>
-                            <%= hidden_field_tag "seccion", @sections.id %>
+                            <%= hidden_field_tag "seccion", @section.id %>
                                 <%= file_field_tag 'file' %>
                                     <%= submit_tag 'Cargar', class:"float-right" %>
                                         <% end %>
@@ -98,7 +98,7 @@
                 </div>
                 <div class="shadow p-3 mb-5 bg-white rounded">
                     <h2 class="font-weight-light">Estadísticas
-                    <%= link_to new_user_path(id: @courses), class:"btn btn-outline-primary btn-sm float-right disabled" do %>
+                    <%= link_to section_path(@section, format: 'pdf'), class:"btn btn-outline-primary btn-sm float-right" do %>
                         Descargar
                         <i class="fas fa-arrow-down"></i>
                         <% end %>
@@ -109,7 +109,7 @@
                         <br>
                         <h4 class="font-weight-light">Niveles completados por alumnos</h4>
                         <br>
-                        <%= line_chart @hash_pupils, xtitle: "Alumnos", ytitle: "Niveles completados", colors: ["#FFAE0D"] %>
+                        <%= bar_chart @hash_pupils, xtitle: "Alumnos", ytitle: "Niveles completados", colors: ["#FFAE0D"] %>
                             <br>
                             <h4 class="font-weight-light">Cantidad de chicos y chicas</h4>
                             <br>

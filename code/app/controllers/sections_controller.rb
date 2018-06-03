@@ -1,14 +1,14 @@
 class SectionsController < ApplicationController
     before_action :authenticate_teacher!
-    
+        
     def new
         @course = Course.find(params[:id])
         @section = Section.new
     end
 
     def show
-        @sections = Section.find(params[:id])
-        @users = @sections.users
+        @section = Section.find(params[:id])
+        @users = @section.users
 
         @users = @users.paginate(page: params[:page], :per_page => 10)
 
@@ -33,6 +33,7 @@ class SectionsController < ApplicationController
         end
     end
 
+    # Método que lee el fichero en formato .json
     def upload
         @section = Section.find(params[:seccion])
 
