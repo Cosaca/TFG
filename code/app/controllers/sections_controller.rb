@@ -10,7 +10,7 @@ class SectionsController < ApplicationController
         @section = Section.find(params[:id])
         @users = @section.users
 
-        @users = @users.paginate(page: params[:page], :per_page => 10)
+        @users = @users.paginate(page: params[:page], :per_page => 15)
 
         # Cálculo de los gráficos de estadísticas
         @hash_ages = {}
@@ -18,6 +18,11 @@ class SectionsController < ApplicationController
         @users.each do |stats_ages|
             @hash_ages[stats_ages.age] = stats_ages.total_lines
             @hash_pupils[stats_ages.username] = stats_ages.completed_levels
+        end
+
+        respond_to do |format|
+            format.html
+            format.pdf {render template: 'sections/stats', pdf: 'Estadisticas'}
         end
     end
 

@@ -98,7 +98,7 @@
                 </div>
                 <div class="shadow p-3 mb-5 bg-white rounded">
                     <h2 class="font-weight-light">Estadísticas
-                    <%= link_to section_path(@section, format: 'pdf'), class:"btn btn-outline-primary btn-sm float-right" do %>
+                    <%= link_to section_path(@section.id, format: :pdf), class:"btn btn-outline-primary btn-sm float-right" do %>
                         Descargar
                         <i class="fas fa-arrow-down"></i>
                         <% end %>
@@ -129,7 +129,7 @@
                 </p>
                 <div class="custom-file">
                     <%= form_tag({action: :upload, controller: :sections}, multipart: true) do %>
-                        <%= hidden_field_tag "seccion", @sections.id %>
+                        <%= hidden_field_tag "seccion", @section.id %>
                             <%= file_field_tag 'file' %>
                                 <%= submit_tag 'Cargar', class:"float-right" %>
                                     <% end %>

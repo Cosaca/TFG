@@ -20,3 +20,4 @@
 //= require bootstrap
 //= require highcharts
 //= require chartkick
+//= require Chart.bundle
