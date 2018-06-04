@@ -10,19 +10,22 @@ class SectionsController < ApplicationController
         @section = Section.find(params[:id])
         @users = @section.users
 
-        @users = @users.paginate(page: params[:page], :per_page => 15)
+        @users = @users.paginate(page: params[:page], :per_page => 20)
 
         # Cálculo de los gráficos de estadísticas
         @hash_ages = {}
-        @hash_pupils = {}
-        @users.each do |stats_ages|
-            @hash_ages[stats_ages.age] = stats_ages.total_lines
-            @hash_pupils[stats_ages.username] = stats_ages.completed_levels
+        @hash_levels = {}
+
+        @users.each do |stats|
+            @hash_ages[stats.age] = stats.total_lines
+            @hash_levels[stats.username] = stats.completed_levels
         end
+
+        puts @hash_ages
 
         respond_to do |format|
             format.html
-            format.pdf {render template: 'sections/stats', pdf: 'Estadisticas'}
+            format.pdf {render template: 'sections/stats', pdf: 'Estadisticas', javascript_delay: 2000}
         end
     end
 
@@ -32,7 +35,8 @@ class SectionsController < ApplicationController
         @section = @course.sections.new(section_params)
         
         if @section.save
-            redirect_to @course, notice: "La sección se ha creado con éxito"
+            flash[:success] = "La sección se ha creado con éxito"
+            redirect_to @course
         else
             render :new
         end
@@ -49,6 +53,9 @@ class SectionsController < ApplicationController
             @user = User.new(first_name: user["name"]["first"], last_name: user["name"]["last"], username: user["username"], age: user["age"],
             gender: user["gender"], total_lines: user["total_lines"], completed_levels: user["completed_levels"], section_id: @section.id).save
         end
+        
+        flash[:notice] = 'Los alumnos se añadieron correctamente'
+        redirect_to @section and return
     end
 
     def destroy

@@ -17,7 +17,7 @@ es:
       locked: 'Tu cuenta está bloqueada.'
       invalid: 'Email o contraseña inválidos.'
       invalid_token: 'Token de autentificación inválido.'
-      not_found_in_database: 'Esta cuenta no existe'
+      not_found_in_database: 'Email o contraseña inválidos.'
       timeout: 'Tu sesión ha expirado. Inicia sesión nuevamente.'
       inactive: 'Tu cuenta aún no ha sido activada.'
     sessions:
@@ -72,3 +72,4 @@ es:
               blank: 'El correo electrónico no puede estar vacío'
             password:
               blank: 'La contraseña no puede estar vacía'
+              too_short: 'La contraseña es demasiado corta'

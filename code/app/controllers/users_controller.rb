@@ -23,7 +23,8 @@ class UsersController < ApplicationController
         @section = Section.find(params[:section_id])
 
         @users = User.find(params[:id]).destroy
-        redirect_to @section, notice: "El alumno se ha borrado con éxito"
+        flash.now[:success] = "El alumno se ha borrado con éxito"
+        redirect_to @section
     end
 
     private

@@ -41,7 +41,8 @@ class CoursesController < ApplicationController
 
     def destroy
         @courses = Course.find(params[:id]).destroy
-        redirect_to :courses, notice: "Tu curso ha sido borrado con éxito"
+        flash[:success] = "Tu curso ha sido borrado con éxito"
+        redirect_to :courses 
     end
 
     private
