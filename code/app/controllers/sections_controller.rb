@@ -10,18 +10,16 @@ class SectionsController < ApplicationController
         @section = Section.find(params[:id])
         @users = @section.users
 
-        @users = @users.paginate(page: params[:page], :per_page => 20)
+        #@users = @users.paginate(page: params[:page])
 
         # Cálculo de los gráficos de estadísticas
-        @hash_ages = {}
-        @hash_levels = {}
-
+        @hash_user_levels = {}
+        
         @users.each do |stats|
-            @hash_ages[stats.age] = stats.total_lines
-            @hash_levels[stats.username] = stats.completed_levels
+            @hash_user_levels[stats.first_name] = stats.completed_levels
         end
 
-        puts @hash_ages
+        #puts @hash_user_levels.invert.sort.flatten
 
         respond_to do |format|
             format.html

@@ -15,66 +15,18 @@
     <div class="container">
         <br>
         <div class="row">
-            <div class="col-md-12">
-                <div class="shadow p-3 mb-5 bg-white rounded">
-                        <h1 class="font-weight-light text-muted">
-                            <%= @section.name %>
-                        </h1>
-                        <h2 class="font-weight-light">
-                            Alumnos matriculados
-                        </h2>
-                        <% if @users.length != 0 %>
-                                <div class="table-responsive">
-                                    <table class="table table-striped text-center">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Nombre de usuario</th>
-                                                <th scope="col">Edad</th>
-                                                <th scope="col">Género</th>
-                                                <th scope="col">Total de líneas</th>
-                                                <th scope="col">Niveles completados</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <% @users.each do |student| %>
-                                                <tr>
-                                                    <td>
-                                                        <%= student.username %>
-                                                    </td>
-                                                    <td>
-                                                        <%= student.age %>
-                                                    </td>
-                                                    <td>
-                                                        <%= student.gender %>
-                                                    </td>
-                                                    <td>
-                                                        <%= student.total_lines %>
-                                                    </td>
-                                                    <td>
-                                                        <%= student.completed_levels %>
-                                                    </td>
-                                                </tr>
-                                                <% end %>
-                                        </tbody>
-                                    </table>
-                                </div>
-                </div>
-                <div class="shadow p-3 mb-5 bg-white rounded">
-                    <h2 class="font-weight-light">Estadísticas
-                    </h2>
-                    <h4 class="font-weight-light">Líneas de código por edades</h4>
-                    <br>
-                    <%= column_chart @hash_ages, xtitle: "Edades alumnos", ytitle: "Total de líneas de código", colors: ["#0064FF"] %>
-                        <br>
-                        <h4 class="font-weight-light">Niveles completados por alumnos</h4>
-                        <br>
-                        <%= bar_chart @hash_levels, xtitle: "Alumnos", ytitle: "Niveles completados", colors: ["#FFAE0D"] %>
-                            <br>
-                            <h4 class="font-weight-light">Cantidad de chicos y chicas</h4>
-                            <br>
-                            <%= pie_chart @users.group(:gender).count, colors: ["#BA2B00", "#00BD6A"], donut: true %>
-                </div>
-                <% end %>
+            <div class="col-12">
+                <h2 class="font-weight-light">Estadísticas
+                </h2>
+                <h4 class="font-weight-light">Líneas de código por edades</h4>
+                <br>
+                <%= line_chart @hash_ages, xtitle: "Edades alumnos", ytitle: "Total de líneas de código", colors: ["#0064FF"], width: "1000px" %>
+                <br>
+                <h4 class="font-weight-light">Niveles completados por alumnos</h4>
+
+                <h4 class="font-weight-light">Cantidad de chicos y chicas</h4>
+                <br>
+                <%= pie_chart @users.group(:gender).count, colors: ["#BA2B00", "#00BD6A"], donut: true, width: "1000px" %>
             </div>
         </div>
     </div>

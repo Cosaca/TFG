@@ -8,7 +8,7 @@
     <title>CodeCharts</title>
 </head>
 
-<body>
+<body class="bgColor">
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-secondary" id="navbarLanding">
         <a class="navbar-brand" href="/">
             <img src="/assets/logo_navbar.png" width="25" height="25" class="d-inline-block align-top" alt="logo"> CodeCharts
@@ -22,62 +22,46 @@
             <ul class="navbar-nav mr-auto">
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <%= link_to "Iniciar sesión", new_teacher_session_path, class:"btn btn-outline-success", id:"botonNav" %>
-                <%= link_to "Crear cuenta", new_teacher_registration_path, class:"btn btn-outline-primary" %>
+                <%= link_to "Iniciar sesión", new_teacher_session_path, class:"btn btn-success" %>
             </form>
     </nav>
 
     <%= render 'layouts/messages' %>
 
-    <div class="jumbotron text-center">
-        <div class="container">
-            <h1 class="display-3">CodeCharts</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron
-                and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>
-
-    <div class="container">
-        <!-- Example row of columns -->
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                    condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-                    Donec sed odio dui. </p>
+        <div class="jumbotron text-center bgJumbo">
+            <div class="container">
+                <h1 class="display-3">CodeCharts</h1>
+                <p class="lead">Crea cursos relacionados con el pensamiento computacional de manera sencilla, de forma que puedas saber el progreso de tus alumnos.</p>
                 <p>
-                    <a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-                </p>
-            </div>
-            <div class="col-md-4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                    condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-                    Donec sed odio dui. </p>
-                <p>
-                    <a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-                </p>
-            </div>
-            <div class="col-md-4">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
-                    felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-                    massa justo sit amet risus.</p>
-                <p>
-                    <a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
+                    <%= link_to "Empezar", new_teacher_registration_path, class:"btn btn-primary"%>
                 </p>
             </div>
         </div>
 
-        <hr>
+        <div class="container bgJumbo2">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                    <h2 class="font-weight-strong">Profesores</h2>
+                    <p class="lead">Los profesores tendrán la posibilidad de crear cursos adaptados para diferentes edades, 
+                    fomentando así el aprendizaje del pensamiento computacional. </p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-graduation-cap fa-2x"></i>
+                    <h2 class="font-weight-strong">Alumnos</h2>
+                    <p class="lead">Los alumnos tendrán un rol meramente representativo en la plataforma, puesto que la finalidad
+                    es mostrar su progreso en los diferentes cursos impartidos por el profesor.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                    <h2 class="font-weight-strong">Estadísticas</h2>
+                    <p class="lead">De forma representativa, los tutores tendrán la posibilidad de ver en qué medida los cursos impartidos
+                    están siendo útiles para los alumnos</p>
 
-    </div>
-    <!-- /container -->
-
-    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 </body>
 
 </html>
