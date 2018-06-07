@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Cursos - CodeCharts</title>
+    <title>Seccion - CodeCharts</title>
 </head>
 
 <body>
@@ -36,107 +36,119 @@
         <br>
         <div class="row">
             <div class="col-md-12">
-                <div class="shadow p-3 mb-5 bg-white rounded">
-                    <%= render 'layouts/messages' %>
-                    <h1 class="font-weight-light text-muted">
-                            <%= @section.name %>
-                        </h1>
-                        <h2 class="font-weight-light">
-                            Alumnos matriculados
-                            <%= link_to "Añadir alumno", new_user_path(id: @section.id), class:"btn btn-outline-primary btn-sm float-right"%>
-                        </h2>
-                        <% if @users.length != 0 %>
-                                <div class="table-responsive">
-                                    <table class="table table-striped text-center">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Nombre de usuario</th>
-                                                <th scope="col">Edad</th>
-                                                <th scope="col">Género</th>
-                                                <th scope="col">Total de líneas</th>
-                                                <th scope="col">Niveles completados</th>
-                                                <th scope="col"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <% @users.each do |student| %>
-                                                <tr>
-                                                    <td>
-                                                        <%= student.username %>
-                                                    </td>
-                                                    <td>
-                                                        <%= student.age %>
-                                                    </td>
-                                                    <td>
-                                                        <%= student.gender %>
-                                                    </td>
-                                                    <td>
-                                                        <%= student.total_lines %>
-                                                    </td>
-                                                    <td>
-                                                        <%= student.completed_levels %>
-                                                    </td>
-                                                    <td>
-                                                        <%= link_to "Eliminar", user_path(id: student.id, params: {section_id: @section.id}), method: :delete, class:"btn btn-danger btn-sm"%>
-                                                    </td>
-                                                </tr>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                            aria-selected="true">Lista de alumnos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                            aria-selected="false">Estadísticas</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="shadow p-3 mb-5 bg-white rounded">
+                            <h2 class="font-weight-light">Subir fichero con información de alumnos</h2>
+                            <p class="font-weight-light">Esta opción le permite al profesor subir un
+                                <strong>fichero</strong> (extensión .json) en el que se recogen todos los datos asociados a los alumnos
+                                en esta sección</p>
+                            <div class="custom-file">
+                                <%= form_tag({action: :upload, controller: :sections}, multipart: true) do %>
+                                    <%= hidden_field_tag "seccion", @section.id %>
+                                        <%= file_field_tag 'file' %>
+                                            <%= submit_tag 'Cargar', class:"float-right" %>
                                                 <% end %>
-                                        </tbody>
-                                    </table>
-                                </div>
-                </div>
-                <div class="shadow p-3 mb-5 bg-white rounded">
-                    <h2 class="font-weight-light">Subir fichero con información de alumnos</h2>
-                    <p class="font-weight-light">Esta opción le permite al profesor subir un
-                        <strong>fichero</strong> (extensión .json) en el que se recogen todos los datos asociados a los alumnos en
-                        esta sección</p>
-                    <div class="custom-file">
-                        <%= form_tag({action: :upload, controller: :sections}, multipart: true) do %>
-                            <%= hidden_field_tag "seccion", @section.id %>
-                                <%= file_field_tag 'file' %>
-                                    <%= submit_tag 'Cargar', class:"float-right" %>
-                                        <% end %>
+                            </div>
+                        </div>
+
+                        <div class="shadow p-3 mb-5 bg-white rounded">
+                            <%= render 'layouts/messages' %>
+                                <h1 class="font-weight-light text-muted">
+                                    <%= @section.name %>
+                                </h1>
+                                <h2 class="font-weight-light">
+                                    Alumnos matriculados
+                                    <%= link_to "Añadir alumno", new_user_path(id: @section.id), class:"btn btn-outline-primary btn-sm float-right"%>
+                                </h2>
+                                <% if @users.length != 0 %>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Nombre de usuario</th>
+                                                    <th scope="col">Edad</th>
+                                                    <th scope="col">Género</th>
+                                                    <th scope="col">Total de líneas</th>
+                                                    <th scope="col">Niveles completados</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% @users.each do |student| %>
+                                                    <tr>
+                                                        <td>
+                                                            <%= student.username %>
+                                                        </td>
+                                                        <td>
+                                                            <%= student.age %>
+                                                        </td>
+                                                        <td>
+                                                            <%= student.gender %>
+                                                        </td>
+                                                        <td>
+                                                            <%= student.total_lines %>
+                                                        </td>
+                                                        <td>
+                                                            <%= student.completed_levels %>
+                                                        </td>
+                                                        <td>
+                                                            <%= link_to "Eliminar", user_path(id: student.id, params: {section_id: @section.id}), method: :delete, class:"btn btn-danger btn-sm"%>
+                                                        </td>
+                                                    </tr>
+                                                    <% end %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <% else %>
+                                        <div class="alert alert-info text-center" role="alert" id="alert">
+                                            No hay alumnos matriculados todavía. Para introducirlos manualmente, haga click en
+                                            <strong>Añadir alumno</strong>
+                                        </div>
+                                <% end %>
+                        </div>
                     </div>
-                </div>
-                <div class="shadow p-3 mb-5 bg-white rounded">
-                    <h2 class="font-weight-light">Estadísticas
-                    <%= link_to section_path(@section.id, format: :pdf), class:"btn btn-outline-primary btn-sm float-right" do %>
-                        Descargar
-                        <i class="fas fa-arrow-down"></i>
-                        <% end %>
-                    </h2>
-                    <h4 class="font-weight-light">Mejores alumnos por niveles</h4>
-                    <br>
-                    <%= bar_chart @hash_user_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#0064FF"], download: true %>
-                    <br>
-                    <h4 class="font-weight-light">Peores alumnos por niveles</h4>
-                    <h4 class="font-weight-light">Cantidad de chicos y chicas</h4>
-                    <br>
-                    <%= pie_chart @users.group(:gender).count, colors: ["#BA2B00", "#00BD6A"], donut: true, download: true %>
-                </div>
-                <% else %>
-                    <div class="alert alert-info text-center" role="alert" id="alert">
-                        No hay alumnos matriculados todavía. Para introducirlos haga click en
-                        <strong>Añadir alumno</strong>
-                    </div>
-            </div>
-            <div class="shadow p-3 mb-5 bg-white rounded">
-                <h2 class="font-weight-light">Subir fichero con información de alumnos</h2>
-                <p class="font-weight-light">Esta opción le permite al profesor subir un
-                    <strong>fichero</strong> (extensión .json) en el que se recogen todos los datos asociados a los alumnos en esta
-                    sección
-                </p>
-                <div class="custom-file">
-                    <%= form_tag({action: :upload, controller: :sections}, multipart: true) do %>
-                        <%= hidden_field_tag "seccion", @section.id %>
-                            <%= file_field_tag 'file' %>
-                                <%= submit_tag 'Cargar', class:"float-right" %>
+
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="shadow p-3 mb-5 bg-white rounded">
+                            <h2 class="font-weight-light">Estadísticas
+                                <%= link_to section_path(@section.id, format: :pdf), class:"btn btn-outline-primary btn-sm float-right" do %>
+                                    Descargar
+                                    <i class="fas fa-arrow-down"></i>
                                     <% end %>
+                            </h2>
+                            <h4 class="font-weight-light">10 mejores alumnos según los niveles completados</h4>
+                            <br>
+                            <%= bar_chart @hash_user_max_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#009933"], download: true %>
+                            <br>
+                            <h4 class="font-weight-light">10 peores alumnos según los niveles completados</h4>
+                            <br>
+                            <%= bar_chart @hash_user_min_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#cc0000"], download: true %>
+                            <br>
+                            <h4 class="font-weight-light">Cantidad de chicos y chicas</h4>
+                            <br>
+                            <%= pie_chart @users.group(:gender).count, colors: ["#993366", "#0099ff"], donut: true, download: true %>
+                            <br>
+                            <h4 class="font-weight-light">Promedio de líneas de código según los niveles completados</h4>
+                            <br>
+                            <%= line_chart @avg_users, xtitle: "Niveles completados", ytitle: "Líneas de código", download: true %>
+                            <br>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <% end %>
         </div>
-    </div>
     </div>
 </body>
 

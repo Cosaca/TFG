@@ -13,13 +13,22 @@ class SectionsController < ApplicationController
         #@users = @users.paginate(page: params[:page])
 
         # Cálculo de los gráficos de estadísticas
-        @hash_user_levels = {}
+        @max_users = @section.users.order(completed_levels: :desc).first(10)
+        @min_users = @section.users.order(completed_levels: :asc).first(10)
+        puts @avg_users = @section.users.group(:completed_levels).average(:total_lines)
+
+        @hash_user_max_levels = {}
+        @hash_user_min_levels = {}
         
-        @users.each do |stats|
-            @hash_user_levels[stats.first_name] = stats.completed_levels
+        @max_users.each do |stats|
+            @hash_user_max_levels[stats.username] = stats.completed_levels
         end
 
-        #puts @hash_user_levels.invert.sort.flatten
+        @min_users.each do |stats|
+            @hash_user_min_levels[stats.username] = stats.completed_levels
+        end
+
+        @hash_user_max_levels.invert.sort.flatten
 
         respond_to do |format|
             format.html

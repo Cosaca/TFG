@@ -5,10 +5,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>CodeCharts</title>
+    <title>Estadísticas</title>
     <%= javascript_include_tag "http://www.google.com/jsapi"%>
-    <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
-    <%= wicked_pdf_javascript_include_tag "chartkick" %>
+        <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
+            <%= wicked_pdf_javascript_include_tag "chartkick" %>
 </head>
 
 <body>
@@ -16,17 +16,25 @@
         <br>
         <div class="row">
             <div class="col-12">
-                <h2 class="font-weight-light">Estadísticas
-                </h2>
-                <h4 class="font-weight-light">Líneas de código por edades</h4>
+                <h1 class="font-weight-light text-muted">
+                    <%= @section.name %>
+                </h1>
+                <h2 class="font-weight-light">Estadísticas</h2>
+                <h4 class="font-weight-light">10 mejores alumnos según los niveles completados</h4>
                 <br>
-                <%= line_chart @hash_ages, xtitle: "Edades alumnos", ytitle: "Total de líneas de código", colors: ["#0064FF"], width: "1000px" %>
+                <%= bar_chart @hash_user_max_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#009933"], download: true, width: "1200px" %>
                 <br>
-                <h4 class="font-weight-light">Niveles completados por alumnos</h4>
-
+                <h4 class="font-weight-light">10 peores alumnos según los niveles completados</h4>
+                <br>
+                <%= bar_chart @hash_user_min_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#cc0000"], download: true, width: "1200px" %>
+                <br>
                 <h4 class="font-weight-light">Cantidad de chicos y chicas</h4>
                 <br>
-                <%= pie_chart @users.group(:gender).count, colors: ["#BA2B00", "#00BD6A"], donut: true, width: "1000px" %>
+                <%= pie_chart @users.group(:gender).count, colors: ["#0099ff", "#00BD6A"], donut: true, download: true, width: "1200px" %>
+                <h4 class="font-weight-light">Promedio de líneas de código según los niveles completados</h4>
+                <br>
+                <%= line_chart @avg_users, xtitle: "Niveles completados", ytitle: "Líneas de código", download: true, width: "1200px" %>
+                <br>
             </div>
         </div>
     </div>
