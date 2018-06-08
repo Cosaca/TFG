@@ -42,11 +42,10 @@
               <div class="form-group">
                 <div class="field">
                   <%= f.label :password, "Contraseña"%>
-                    <% if @minimum_password_length %>
-                      <em>(
-                        <%= @minimum_password_length %> carácteres mínimos)</em>
-                      <% end %>
-                        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+                    <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                      La contraseña debe tener al menos 6 carácteres.
+                    </small>
                 </div>
               </div>
 

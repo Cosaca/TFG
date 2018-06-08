@@ -73,6 +73,7 @@
                                     <%= link_to "Añadir alumno", new_user_path(id: @section.id), class:"btn btn-outline-primary btn-sm float-right"%>
                                 </h2>
                                 <% if @users.length != 0 %>
+                                    <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
                                     <div class="table-responsive">
                                         <table class="table table-striped text-center">
                                             <thead>
@@ -128,15 +129,15 @@
                                     <i class="fas fa-arrow-down"></i>
                                     <% end %>
                             </h2>
-                            <h4 class="font-weight-light">10 mejores alumnos según los niveles completados</h4>
+                            <h4 class="font-weight-light">5 alumnos que más niveles han completado </h4>
                             <br>
                             <%= bar_chart @hash_user_max_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#009933"], download: true %>
                             <br>
-                            <h4 class="font-weight-light">10 peores alumnos según los niveles completados</h4>
+                            <h4 class="font-weight-light">5 alumnos que menos niveles han completado</h4>
                             <br>
                             <%= bar_chart @hash_user_min_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#cc0000"], download: true %>
                             <br>
-                            <h4 class="font-weight-light">Cantidad de chicos y chicas</h4>
+                            <h4 class="font-weight-light">Porcentaje de chicos y chicas matriculados en el curso</h4>
                             <br>
                             <%= pie_chart @users.group(:gender).count, colors: ["#993366", "#0099ff"], donut: true, download: true %>
                             <br>
