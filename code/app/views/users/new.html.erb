@@ -20,12 +20,23 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/courses">
+            Mis cursos
+          </a>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <p class="my-2 my-sm-0" id="teacherName">
-          <%= current_teacher.first_name %>
-        </p>
-        <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger"%>
+        <div class="dropdown">
+          <button class="btn btn-outline-secondary btn-sm dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <%= current_teacher.first_name %>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+            <%= link_to "Editar perfil", edit_teacher_registration_path, class:"dropdown-item"%>
+              <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"dropdown-item" %>
+          </div>
+        </div>
       </form>
   </nav>
 
@@ -64,7 +75,7 @@
 
                 <div class="form-group">
                   <div class="field">
-                    <%= f.label :gender, "Género" %>
+                    <%= f.label :gender, "Sexo" %>
                       <br>
                       <%= f.select(:gender, ["Masculino", "Femenino", "Otro"], {include_blank: true}, {class:"form-control"})%>
                   </div>

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Estadísticas</title>
     <%= javascript_include_tag "http://www.google.com/jsapi"%>
-        <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
-            <%= wicked_pdf_javascript_include_tag "chartkick" %>
+    <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
+    <%= wicked_pdf_javascript_include_tag "chartkick" %>
 </head>
 
 <body>
@@ -16,25 +16,34 @@
         <br>
         <div class="row">
             <div class="col-12">
-                <h1 class="font-weight-light text-muted">
+                <h1 class="font-weight-light text-muted nobreak">
                     <%= @section.name %>
                 </h1>
                 <h2 class="font-weight-light">Estadísticas</h2>
-                <h4 class="font-weight-light">Alumn@s con más niveles completados</h4>
-                <br>
-                <%= bar_chart @hash_user_max_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#009933"], download: true, width: "1200px" %>
-                <br>
-                <h4 class="font-weight-light">Alumn@s con menos niveles completados</h4>
-                <br>
-                <%= bar_chart @hash_user_min_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#cc0000"], download: true, width: "1200px" %>
-                <br>
                 <h4 class="font-weight-light">Total de alumn@s matriculados en el curso</h4>
                 <br>
-                <%= pie_chart @users.group(:gender).count, colors: ["#0099ff", "#00BD6A"], donut: true, download: true, width: "1200px" %>
-                <h4 class="font-weight-light">Promedio de "líneas de código" según los niveles completados</h4>
-                <br>
-                <%= line_chart @avg_users, xtitle: "Niveles completados", ytitle: "Líneas de código", download: true, width: "1200px" %>
-                <br>
+                <%= pie_chart @users.group(:gender).count, colors: ["#993366", "#0099ff"], donut: true, download: true, width: "1200px" %>
+                    <br>
+                    <h4 class="font-weight-light">Alumn@s con más niveles completados</h4>
+                    <br>
+                    <%= bar_chart @hash_user_max_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#009933"], download: true, width: "1200px" %>
+                        <br>
+                        <h4 class="font-weight-light">Alumn@s con menos niveles completados</h4>
+                        <br>
+                        <%= bar_chart @hash_user_min_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#cc0000"], download: true, width: "1200px" %>
+                        <br>
+                            <h4 class="font-weight-light stylePdf">Niveles completados clasificados por sexos</h4>
+                            <br>
+                            <%= pie_chart @gender_levels, colors: ["#417F63", "#87BF61"], download: true, width: "1200px" %>
+                                <br>
+                                <h4 class="font-weight-light">Media de niveles completados por edades</h4>
+                                <br>
+                                <%= line_chart @users_age, xtitle: "Edades", ytitle: "Niveles", colors: ["#FFBD45"], download: true, width: "1200px" %>
+                                    <br>
+                                    <h4 class="font-weight-light">Promedio de "líneas de código" según los niveles completados</h4>
+                                    <br>
+                                    <%= line_chart @avg_users, xtitle: "Niveles completados", ytitle: "Líneas de código", download: true, width: "1200px" %>
+                                        <br>
             </div>
         </div>
     </div>

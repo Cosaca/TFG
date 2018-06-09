@@ -15,6 +15,8 @@ class CoursesController < ApplicationController
         # Cálculo de los gráficos de estadísticas
         @max_users = @courses.users.order(completed_levels: :desc).first(5)
         @min_users = @courses.users.order(completed_levels: :asc).first(5)
+        @users_age = @courses.users.group(:age).average(:completed_levels)
+        @gender_levels = @courses.users.group(:gender).sum(:completed_levels)
         @avg_users = @courses.users.group(:completed_levels).average(:total_lines)
 
         @hash_user_max_levels = {}

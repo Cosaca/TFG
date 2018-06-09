@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         @user = @section.users.new(user_params)
 
         if @user.save
-            flash.now[:success] = "El usuario se ha creado con éxito"
+            flash[:success] = "El usuario se ha creado con éxito"
             redirect_to @section
         else
             render :new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         @section = Section.find(params[:section_id])
 
         @users = User.find(params[:id]).destroy
-        flash.now[:success] = "El alumno se ha borrado con éxito"
+        flash[:success] = "El alumno se ha borrado con éxito"
         redirect_to @section
     end
 

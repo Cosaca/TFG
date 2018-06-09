@@ -15,6 +15,8 @@ class SectionsController < ApplicationController
         # Cálculo de los gráficos de estadísticas
         @max_users = @section.users.order(completed_levels: :desc).first(5)
         @min_users = @section.users.order(completed_levels: :asc).first(5)
+        @users_age = @section.users.group(:age).average(:completed_levels)
+        @gender_levels = @section.users.group(:gender).sum(:completed_levels)
         @avg_users = @section.users.group(:completed_levels).average(:total_lines)
 
         @hash_user_max_levels = {}
