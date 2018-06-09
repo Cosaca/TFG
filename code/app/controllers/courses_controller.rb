@@ -9,6 +9,24 @@ class CoursesController < ApplicationController
     def show
         @courses = Course.find(params[:id])
         @sections = @courses.sections
+
+        @users = @courses.users
+
+        # Cálculo de los gráficos de estadísticas
+        @max_users = @courses.users.order(completed_levels: :desc).first(5)
+        @min_users = @courses.users.order(completed_levels: :asc).first(5)
+        @avg_users = @courses.users.group(:completed_levels).average(:total_lines)
+
+        @hash_user_max_levels = {}
+        @hash_user_min_levels = {}
+        
+        @max_users.each do |stats|
+            @hash_user_max_levels[stats.username] = stats.completed_levels
+        end
+
+        @min_users.each do |stats|
+            @hash_user_min_levels[stats.username] = stats.completed_levels
+        end
     end
 
     def new

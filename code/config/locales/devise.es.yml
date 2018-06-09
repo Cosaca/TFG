@@ -69,6 +69,7 @@ es:
           attributes:
             current_password:
               blank: 'No se ha introducido la contraseña actual'
+              invalid: 'La contraseña actual es incorrecta'
             email: 
               blank: 'El correo electrónico no puede estar vacío'
             password:

@@ -4,4 +4,5 @@ class Course < ApplicationRecord
 
     belongs_to :teacher
     has_many :sections, dependent: :destroy
+    has_many :users, through: :sections
 end

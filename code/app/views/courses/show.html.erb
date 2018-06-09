@@ -28,7 +28,7 @@
                     <%= current_teacher.first_name %>
                 </p>
                 <%= link_to "Editar perfil", edit_teacher_registration_path, class:"btn btn-outline-info btn-sm", id:"botonNav"%>
-                <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger btn-sm"%>
+                    <%= link_to "Cerrar sesión", destroy_teacher_session_path, method: :delete, class:"btn btn-danger btn-sm"%>
             </form>
     </nav>
 
@@ -59,48 +59,64 @@
                     <%= link_to edit_course_path(id: @courses), class:"btn btn-warning btn-sm" do %>
                         Editar
                         <i class="far fa-edit"></i>
-                    <% end %>
-                    <%= link_to new_section_path(id: @courses), class:"btn btn-info btn-sm" do %>
-                        Añadir sección
-                        <i class="fas fa-plus"></i>
-                    <% end %>
+                        <% end %>
+                            <%= link_to new_section_path(id: @courses), class:"btn btn-info btn-sm" do %>
+                                Añadir sección
+                                <i class="fas fa-plus"></i>
+                                <% end %>
                 </div>
             </div>
             <div class="col-md-9">
                 <% if @sections.length == 0 %>
-                    <div class="alert alert-info text-center" role="alert" id="alert">
-                        No hay secciones creadas para este curso. Para crearlos, pulse
-                        <strong>"Añadir sección"</strong>
+                <div class="alert alert-info text-center" role="alert" id="alert">
+                        Para visualizar las estadísticas, debe añadir secciones previamente.
                     </div>
                     <div class="alert alert-info text-center" role="alert" id="alert">
-                        Para poder obtener una visualización de las estadísticas, debe añadir secciones previamente
+                        No hay secciones creadas para este curso. Para crearlas, pulse
+                        <strong>"Añadir sección"</strong>.
                     </div>
                     <% else %>
-                    <div class="shadow p-3 mb-5 bg-white rounded">
-                      <%= render 'layouts/messages' %>
-                        <h2 class="font-weight-light">
-                            Secciones disponibles
-                        </h2>
-                        <br>
-                        <% @sections.each do |sections_course|%>
-                            <div class="card">
-                                <div class="card-body bg-light">
-                                    <h3 class="font-weight-light">
-                                        <%= sections_course.name %>
-                                        <%= link_to "Eliminar", section_path(id: sections_course.id, params: {course_id: @courses.id}), method: :delete, class:"btn btn-outline-danger btn-sm float-right"%>
-                                        <%= link_to "Administrar alumnos", section_path(id: sections_course.id, params: {course_id: @courses.id}), class:"btn btn-outline-success btn-sm float-right mr-md-1"%>
-                                    </h3>
-                                </div>
-                            </div>
-                            <br>
-                        <% end %>
+                        <div class="shadow p-3 mb-5 bg-white rounded">
+                            <%= render 'layouts/messages' %>
+                                <h2 class="font-weight-light">
+                                    Secciones
+                                </h2>
+                                <br>
+                                <% @sections.each do |sections_course|%>
+                                    <div class="card">
+                                        <div class="card-body bg-light">
+                                            <h3 class="font-weight-light">
+                                                <%= sections_course.name %>
+                                                    <%= link_to "Eliminar", section_path(id: sections_course.id, params: {course_id: @courses.id}), method: :delete, class:"btn btn-outline-danger btn-sm float-right"%>
+                                                        <%= link_to "Administrar alumn@s", section_path(id: sections_course.id, params: {course_id: @courses.id}), class:"btn btn-outline-success btn-sm float-right mr-md-1"%>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <% end %>
                         </div>
                         <div class="shadow p-3 mb-5 bg-white rounded">
                             <h2 class="font-weight-light">
-                                Estadísticas
+                                Resultados generales
                             </h2>
+                            <h4 class="font-weight-light">5 alumnos que más niveles han completado </h4>
+                            <br>
+                            <%= bar_chart @hash_user_max_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#009933"], download: true %>
+                                <br>
+                                <h4 class="font-weight-light">5 alumnos que menos niveles han completado</h4>
+                                <br>
+                                <%= bar_chart @hash_user_min_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#cc0000"], download: true %>
+                                    <br>
+                                    <h4 class="font-weight-light">Porcentaje de chicos y chicas matriculados en el curso</h4>
+                                    <br>
+                                    <%= pie_chart @users.group(:gender).count, colors: ["#993366", "#0099ff"], donut: true, download: true %>
+                                        <br>
+                                        <h4 class="font-weight-light">Promedio de líneas de código según los niveles completados</h4>
+                                        <br>
+                                        <%= line_chart @avg_users, xtitle: "Niveles completados", ytitle: "Líneas de código", download: true %>
+                                            <br>
                         </div>
-                <%end%>
+                        <%end%>
             </div>
         </div>
     </div>

@@ -79,8 +79,8 @@
 
                   <div class="form-group">
                     <div class="field">
-                      <%= f.label :password, "Contraseña" %>
-                        <strong>(dejar en blanco si no se quiere cambiar)</strong>
+                      <%= f.label :password, "Nueva contraseña" %>
+                        <strong>(si no hay cambios, dejar en blanco)</strong>
                         <br />
                         <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
                           <small id="passwordHelpBlock" class="form-text text-muted">
@@ -91,7 +91,7 @@
 
                   <div class="form-group">
                     <div class="field">
-                      <%= f.label :password_confirmation, "Confirmar contraseña" %>
+                      <%= f.label :password_confirmation, "Confirmar nueva contraseña" %>
                         <br />
                         <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
                     </div>
@@ -100,14 +100,14 @@
                   <div class="form-group">
                     <div class="field">
                       <%= f.label :current_password, "Contraseña actual" %>
-                        <strong>(necesaria para efectuar los cambios)</strong>
+                        <strong>(*)</strong>
                         <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
                     </div>
                   </div>
 
                   <div class="actions text-center">
                     <%= f.submit "Actualizar", class:"btn btn-primary btn-sm" %>
-                    <%= link_to "Volver", :back, class:"btn btn-dark btn-sm" %>
+                    <%= link_to "Volver", :courses, class:"btn btn-dark btn-sm" %>
                     <% end %>
                   </div>
                   <br>
