@@ -166,7 +166,7 @@
                                     <strong>archivo</strong> (extensión .json) en el que se recogen todos los datos asociados a los
                                     alumnos en la sección.</p>
                                 <div class="custom-file">
-                                    <%= form_tag({action: :upload, controller: :sections}, multipart: true) do %>
+                                    <%= form_tag({action: :upload}, multipart: true) do %>
                                         <%= hidden_field_tag "seccion", @section.id %>
                                             <%= file_field_tag 'file' %>
                                                 <%= submit_tag 'Cargar', class:"float-right" %>

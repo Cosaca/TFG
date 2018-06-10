@@ -53,16 +53,23 @@ class SectionsController < ApplicationController
     def upload
         @section = Section.find(params[:seccion])
 
-        file = params[:file].read
-        data = JSON.parse(file)
+        filename = params[:file].original_filename
+
+        if filename.match(/\.json/)
+            file = params[:file].read
+            data = JSON.parse(file)
         
-        data.each do |user|
-            @user = User.new(first_name: user["name"]["first"], last_name: user["name"]["last"], username: user["username"], age: user["age"],
-            gender: user["gender"], total_lines: user["total_lines"], completed_levels: user["completed_levels"], section_id: @section.id).save
+            data.each do |user|
+                @user = User.new(first_name: user["name"]["first"], last_name: user["name"]["last"], username: user["username"], age: user["age"],
+                gender: user["gender"], total_lines: user["total_lines"], completed_levels: user["completed_levels"], section_id: @section.id).save
+            end
+            
+            flash[:success] = 'Los alumnos se añadieron correctamente'
+            redirect_to @section and return
+        else
+            flash[:danger] = 'El formato del archivo es incorrecto. Debe ser con extensión .json'
+            redirect_to @section and return
         end
-        
-        flash[:notice] = 'Los alumnos se añadieron correctamente'
-        redirect_to @section and return
     end
 
     def destroy
