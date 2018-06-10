@@ -20,15 +20,15 @@
                     <%= @section.name %>
                 </h1>
                 <h2 class="font-weight-light">Estadísticas</h2>
-                <h4 class="font-weight-light">Total de alumn@s matriculados en el curso</h4>
+                <h4 class="font-weight-light">Total de alumnos matriculados en el curso</h4>
                 <br>
                 <%= pie_chart @users.group(:gender).count, colors: ["#993366", "#0099ff"], donut: true, download: true, width: "1200px" %>
                     <br>
-                    <h4 class="font-weight-light">Alumn@s con más niveles completados</h4>
+                    <h4 class="font-weight-light">Alumnos con más niveles completados</h4>
                     <br>
                     <%= bar_chart @hash_user_max_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#009933"], download: true, width: "1200px" %>
                         <br>
-                        <h4 class="font-weight-light">Alumn@s con menos niveles completados</h4>
+                        <h4 class="font-weight-light">Alumnos con menos niveles completados</h4>
                         <br>
                         <%= bar_chart @hash_user_min_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#cc0000"], download: true, width: "1200px" %>
                         <br>
