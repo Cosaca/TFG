@@ -113,11 +113,11 @@
                                 <br>
                                 <%= pie_chart @users.group(:gender).count, colors: ["#993366", "#0099ff"], donut: true, download: true %>
                                     <br>
-                                    <h4 class="font-weight-light">alumnos con más niveles completados</h4>
+                                    <h4 class="font-weight-light">Alumnos con más niveles completados</h4>
                                     <br>
                                     <%= bar_chart @hash_user_max_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#009933"], download: true %>
                                         <br>
-                                        <h4 class="font-weight-light">alumnos con menos niveles completados</h4>
+                                        <h4 class="font-weight-light">Alumnos con menos niveles completados</h4>
                                         <br>
                                         <%= bar_chart @hash_user_min_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#cc0000"], download: true %>
                                             <br>

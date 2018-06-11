@@ -34,7 +34,7 @@
         </div>
       </form>
   </nav>
-
+  
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
@@ -50,6 +50,12 @@
             <div class="form-group">
               <div class="field">
                 <%= f.text_area :body, placeholder: "Descripción", class:"form-control"%>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="field">
+                <%= f.number_field :value_reference, placeholder: "Valor de referencia", class:"form-control"%>
               </div>
             </div>
 
