@@ -17,6 +17,8 @@ class SectionsController < ApplicationController
         @min_users = @section.users.order(completed_levels: :asc).first(5)
         @users_age = @section.users.group(:age).average(:completed_levels)
         @gender_levels = @section.users.group(:gender).sum(:completed_levels)
+        @reference_lines = @section.users.group(:user_value_reference).sum(:total_lines)
+        @reference_levels = @section.users.group(:user_value_reference).sum(:completed_levels)
         @avg_users = @section.users.group(:completed_levels).average(:total_lines)
 
         @hash_user_max_levels = {}
@@ -61,7 +63,8 @@ class SectionsController < ApplicationController
         
             data.each do |user|
                 @user = User.new(first_name: user["name"]["first"], last_name: user["name"]["last"], username: user["username"], age: user["age"],
-                gender: user["gender"], total_lines: user["total_lines"], completed_levels: user["completed_levels"], section_id: @section.id).save
+                gender: user["gender"], user_value_reference: user["user_value_reference"], total_lines: user["total_lines"], 
+                completed_levels: user["completed_levels"], section_id: @section.id).save
             end
             
             flash[:success] = 'Los alumnos se añadieron correctamente'

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Estadísticas</title>
     <%= javascript_include_tag "http://www.google.com/jsapi"%>
-    <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
-    <%= wicked_pdf_javascript_include_tag "chartkick" %>
+        <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
+            <%= wicked_pdf_javascript_include_tag "chartkick" %>
 </head>
 
 <body>
@@ -31,19 +31,27 @@
                         <h4 class="font-weight-light">Alumnos con menos niveles completados</h4>
                         <br>
                         <%= bar_chart @hash_user_min_levels, xtitle: "Niveles", ytitle: "Alumnos", colors: ["#cc0000"], download: true, width: "1200px" %>
-                        <br>
+                            <br>
                             <h4 class="font-weight-light stylePdf">Niveles completados clasificados por sexos</h4>
                             <br>
                             <%= pie_chart @gender_levels, colors: ["#417F63", "#87BF61"], download: true, width: "1200px" %>
                                 <br>
-                                <h4 class="font-weight-light">Media de niveles completados por edades</h4>
+                                <h4 class="font-weight-light">Líneas de código por valores de referencia de alumnos</h4>
                                 <br>
-                                <%= line_chart @users_age, xtitle: "Edades", ytitle: "Niveles", colors: ["#FFBD45"], download: true, width: "1200px" %>
+                                <%= scatter_chart @reference_lines, library: {discrete: true, pointSize: 1, lineWidth: 1, hAxis: {type: "category"}}, xtitle: "Valores de referencia", ytitle: "Líneas de código", colors: ["#BF7F9F"], download: true, width: "1200px" %>
                                     <br>
-                                    <h4 class="font-weight-light">Promedio de "líneas de código" según los niveles completados</h4>
+                                    <h4 class="font-weight-light">Niveles completados por valores de referencia de alumnos</h4>
                                     <br>
-                                    <%= line_chart @avg_users, xtitle: "Niveles completados", ytitle: "Líneas de código", download: true, width: "1200px" %>
+                                    <%= scatter_chart @reference_levels, library: {discrete: true, pointSize: 1, lineWidth: 1, hAxis: {type: "category"}}, xtitle: "Valores de referencia", ytitle: "Niveles completados", width: "1200px", download: true %>
                                         <br>
+                                        <h4 class="font-weight-light">Media de niveles completados por edades</h4>
+                                        <br>
+                                        <%= line_chart @users_age, xtitle: "Edades", ytitle: "Niveles", colors: ["#FFBD45"], download: true, width: "1200px" %>
+                                            <br>
+                                            <h4 class="font-weight-light stylePdf2">Promedio de "líneas de código" según los niveles completados</h4>
+                                            <br>
+                                            <%= line_chart @avg_users, xtitle: "Niveles completados", ytitle: "Líneas de código", download: true, width: "1200px" %>
+                                                <br>
             </div>
         </div>
     </div>

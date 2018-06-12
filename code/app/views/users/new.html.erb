@@ -11,7 +11,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-secondary" id="navbarLanding">
     <a class="navbar-brand" href="/courses">
-      <img src="/assets/logo_navbar.png" width="25" height="25" class="d-inline-block align-top" alt="logo"> CodeCharts
+      <img src="/assets/logo.png" width="25" height="25" class="d-inline-block align-top" alt="logo"> CodeCharts
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -86,6 +86,14 @@
                     <%= f.label :age, "Edad" %>
                       <br>
                       <%= f.number_field :age, class:"form-control"%>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="field">
+                    <%= f.label :user_value_reference, "Valor de referencia" %>
+                      <br>
+                      <%= f.number_field :user_value_reference, class:"form-control", step: :any %>
                   </div>
                 </div>
 

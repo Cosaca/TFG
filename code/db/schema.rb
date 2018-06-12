@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_06_11_142756) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "teacher_id"
-    t.integer "value_reference"
+    t.float "value_reference"
     t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2018_06_11_142756) do
     t.datetime "updated_at", null: false
     t.string "gender"
     t.integer "section_id"
+    t.float "user_value_reference"
     t.index ["section_id"], name: "index_users_on_section_id"
   end
 

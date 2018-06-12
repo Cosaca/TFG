@@ -12,7 +12,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-secondary" id="navbarLanding">
         <a class="navbar-brand" href="/courses">
-            <img src="/assets/logo_navbar.png" width="25" height="25" class="d-inline-block align-top" alt="logo"> CodeCharts
+            <img src="/assets/logo.png" width="25" height="25" class="d-inline-block align-top" alt="logo"> CodeCharts
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -83,8 +83,9 @@
                                                         <th scope="col">Nombre de usuario</th>
                                                         <th scope="col">Edad</th>
                                                         <th scope="col">Sexo</th>
+                                                        <th scope="col">Valor de referencia del alumno</th>
                                                         <th scope="col">Total de líneas</th>
-                                                        <th scope="col">Niveles completados</th>
+                                                        <th scope="col">Niveles completados (0-20)</th>
                                                         <th scope="col"></th>
                                                     </tr>
                                                 </thead>
@@ -99,6 +100,9 @@
                                                             </td>
                                                             <td>
                                                                 <%= student.gender %>
+                                                            </td>
+                                                            <td>
+                                                                <%= student.user_value_reference %>
                                                             </td>
                                                             <td>
                                                                 <%= student.total_lines %>
@@ -149,14 +153,22 @@
                                             <br>
                                             <%= pie_chart @gender_levels, colors: ["#417F63", "#87BF61"], download: true %>
                                                 <br>
-                                                <h4 class="font-weight-light">Media de niveles completados por edades</h4>
+                                                <h4 class="font-weight-light">Líneas de código por valores de referencia de alumnos</h4>
                                                 <br>
-                                                <%= line_chart @users_age, xtitle: "Edades", ytitle: "Niveles", colors: ["#FFBD45"], download: true %>
+                                                <%= scatter_chart @reference_lines, library: {discrete: true, pointSize: 1, lineWidth: 1, hAxis: {type: "category"}}, xtitle: "Valores de referencia", ytitle: "Líneas de código", colors: ["#BF7F9F"], download: true %>
                                                     <br>
-                                                    <h4 class="font-weight-light">Promedio de "líneas de código" según los niveles completados</h4>
+                                                    <h4 class="font-weight-light">Niveles completados por valores de referencia de alumnos</h4>
                                                     <br>
-                                                    <%= line_chart @avg_users, xtitle: "Niveles completados", ytitle: "Líneas de código", download: true %>
-                                                    <br>
+                                                    <%= scatter_chart @reference_levels, library: {discrete: true, pointSize: 1, lineWidth: 1, hAxis: {type: "category"}}, xtitle: "Valores de referencia", ytitle: "Niveles completados", download: true %>
+                                                        <br>
+                                                        <h4 class="font-weight-light">Media de niveles completados por edades</h4>
+                                                        <br>
+                                                        <%= line_chart @users_age, xtitle: "Edades", ytitle: "Niveles", colors: ["#FFBD45"], download: true %>
+                                                            <br>
+                                                            <h4 class="font-weight-light">Promedio de "líneas de código" según los niveles completados</h4>
+                                                            <br>
+                                                            <%= line_chart @avg_users, xtitle: "Niveles completados", ytitle: "Líneas de código", download: true %>
+                                                                <br>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="upload" role="tabpanel" aria-labelledby="upload-tab">
