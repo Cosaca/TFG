@@ -124,6 +124,12 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT cap2.tex
 INPUT cap2.tex
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT images/captura_code.eps
+INPUT images/captura_code.eps
+INPUT images/captura_codecademy.eps
+INPUT images/captura_codecademy.eps
+INPUT images/captura_programamos.eps
+INPUT images/captura_programamos.eps
 INPUT cap3.tex
 INPUT cap3.tex
 INPUT cap4.tex
