@@ -2,5 +2,54 @@
 % Chapter 3: TÃ­tulo del capÃ­tulo 3
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Al realizar una búsqueda entre las diversas tecnologías que se encuentran en Internet para desarrollo web, en este capítulo se describen con detalle las usadas para realizar el Trabajo de Fin de Grado.
+
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+\section{Ruby on Rails}
+\label{3:sec:1}
+
+El ''Framework'' en un proyecto se puede entender como el entorno de trabajo usado para desarrollar la aplicación web, es decir, una estructura dividido en capas que nos indica qué programas deben o pueden ser construidos y de qué manera se relacionan.
+
+En este proyecto, he usado \textbf{Ruby on Rails}\cite{Rails}, un entorno Open Source (de código abierto) para el diseño de toda la plataforma. Rails fue lanzado en 2003 por David Heinemeier Hansson y desde ese momento se ha ido extendiendo entre la comunidad de programadores, consiguiendo así una extensa y gran comunidad.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[width=0.4\textwidth]{images/logo_rails.eps}
+\caption{Ruby on Rails}
+\label{fig:4}
+\end{center}
+\end{figure}
+
+Alguna de las características que definen a este framework son:
+
+\begin{itemize}
+    \item Usa el estilo de arquitectura MVC (Modelo Vista Controlador) que separa los datos, la lógica y la interfaz de la aplicación.
+    \item Evita la repetición de código
+    \item Framework con posibilidad de validación de formularios y manejo de sesiones.
+\end{itemize}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\section{Active Record}
+\label{3:sec:2}
+
+Para gestionar la base de datos de la aplicación, se ha optado por \textbf{Active Record}\cite{Active}, incluido en Ruby on Rails. Active Record se podría definir como la ''M'' en la estructura ''Modelo, Vista, Controlador'', ya que es la capa responsable de representar los datos y la lógica de la aplicación.
+
+Rails viene integrado por defecto con SQLite para el manejo de las bases de datos, debido a su sencillez y su uso sin necesidad de un servidor externo. Se utiliza tanto en el entorno de desarrollo (development) como el de pruebas (test) del proyecto. 
+En el caso de que nuestro proyecto se use en el entorno de producción, no se recomienda el uso de SQLite, sino una aplicación más potente para el manejo de los datos.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[width=0.3\textwidth]{images/logo_sqlite.eps}
+\caption{SQLite}
+\label{fig:5}
+\end{center}
+\end{figure}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\section{Bootstrap}
+\label{3:sec:3}
+
+Para el diseño front-end
