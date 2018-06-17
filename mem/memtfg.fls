@@ -174,8 +174,16 @@ INPUT images/logo_rails.eps
 INPUT images/logo_rails.eps
 INPUT images/logo_sqlite.eps
 INPUT images/logo_sqlite.eps
+INPUT images/logo_bootstrap.eps
+INPUT images/logo_bootstrap.eps
+INPUT images/logo_github.eps
+INPUT images/logo_github.eps
+INPUT images/logo_chartkick.eps
+INPUT images/logo_chartkick.eps
 INPUT cap4.tex
 INPUT cap4.tex
+INPUT images/logo_plataforma.eps
+INPUT images/logo_plataforma.eps
 INPUT cap5.tex
 INPUT cap5.tex
 INPUT cap6.tex
