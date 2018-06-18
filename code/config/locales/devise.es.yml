@@ -72,6 +72,7 @@ es:
               invalid: 'La contraseña actual es incorrecta'
             email: 
               blank: 'El correo electrónico no puede estar vacío'
+              taken: 'Ya existe una cuenta con ese correo electrónico'
             password:
               blank: 'La contraseña no puede estar vacía'
               too_short: 'La contraseña es demasiado corta'

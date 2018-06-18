@@ -15,16 +15,27 @@
 \BOOKMARK [1][-]{section.3.4}{Github}{chapter.3}% 15
 \BOOKMARK [1][-]{section.3.5}{Chartkick}{chapter.3}% 16
 \BOOKMARK [1][-]{section.3.6}{Pruebas con RSpec}{chapter.3}% 17
-\BOOKMARK [0][-]{chapter.4}{CodeCharts}{}% 18
-\BOOKMARK [0][-]{chapter.5}{Conclusiones y l\355neas futuras}{}% 19
-\BOOKMARK [0][-]{chapter.6}{Summary and Conclusions }{}% 20
-\BOOKMARK [1][-]{section.6.1}{First Section}{chapter.6}% 21
-\BOOKMARK [0][-]{chapter.7}{Presupuesto}{}% 22
-\BOOKMARK [1][-]{section.7.1}{Secci\363n Uno}{chapter.7}% 23
-\BOOKMARK [0][-]{appendix.Alph1}{T\355tulo del Ap\351ndice 1}{}% 24
-\BOOKMARK [1][-]{section.Alph1.1}{Algoritmo XXX}{appendix.Alph1}% 25
-\BOOKMARK [1][-]{section.Alph1.2}{Algoritmo YYY}{appendix.Alph1}% 26
-\BOOKMARK [0][-]{appendix.Alph2}{T\355tulo del Ap\351ndice 2}{}% 27
-\BOOKMARK [1][-]{section.Alph2.1}{Otro ap\351ndice: Secci\363n 1}{appendix.Alph2}% 28
-\BOOKMARK [1][-]{section.Alph2.2}{Otro ap\351ndice: Secci\363n 2}{appendix.Alph2}% 29
-\BOOKMARK [0][-]{section.Alph2.2}{Bibliograf\355a}{}% 30
+\BOOKMARK [0][-]{chapter.4}{Plataforma}{}% 18
+\BOOKMARK [1][-]{section.4.1}{Arquitectura de la aplicaci\363n}{chapter.4}% 19
+\BOOKMARK [2][-]{subsection.4.1.1}{CodeCharts}{section.4.1}% 20
+\BOOKMARK [2][-]{subsection.4.1.2}{Base de datos}{section.4.1}% 21
+\BOOKMARK [2][-]{subsection.4.1.3}{Gemas utilizadas}{section.4.1}% 22
+\BOOKMARK [1][-]{section.4.2}{Dise\361o de la aplicaci\363n}{chapter.4}% 23
+\BOOKMARK [2][-]{subsection.4.2.1}{P\341gina de inicio}{section.4.2}% 24
+\BOOKMARK [2][-]{subsection.4.2.2}{Registro/Inicio de sesi\363n}{section.4.2}% 25
+\BOOKMARK [2][-]{subsection.4.2.3}{Cursos creados}{section.4.2}% 26
+\BOOKMARK [2][-]{subsection.4.2.4}{Perfil del profesor}{section.4.2}% 27
+\BOOKMARK [2][-]{subsection.4.2.5}{Detalles del curso}{section.4.2}% 28
+\BOOKMARK [2][-]{subsection.4.2.6}{Detalles de la secci\363n}{section.4.2}% 29
+\BOOKMARK [0][-]{chapter.5}{Conclusiones y l\355neas futuras}{}% 30
+\BOOKMARK [0][-]{chapter.6}{Summary and Conclusions }{}% 31
+\BOOKMARK [1][-]{section.6.1}{First Section}{chapter.6}% 32
+\BOOKMARK [0][-]{chapter.7}{Presupuesto}{}% 33
+\BOOKMARK [1][-]{section.7.1}{Secci\363n Uno}{chapter.7}% 34
+\BOOKMARK [0][-]{appendix.Alph1}{T\355tulo del Ap\351ndice 1}{}% 35
+\BOOKMARK [1][-]{section.Alph1.1}{Algoritmo XXX}{appendix.Alph1}% 36
+\BOOKMARK [1][-]{section.Alph1.2}{Algoritmo YYY}{appendix.Alph1}% 37
+\BOOKMARK [0][-]{appendix.Alph2}{T\355tulo del Ap\351ndice 2}{}% 38
+\BOOKMARK [1][-]{section.Alph2.1}{Otro ap\351ndice: Secci\363n 1}{appendix.Alph2}% 39
+\BOOKMARK [1][-]{section.Alph2.2}{Otro ap\351ndice: Secci\363n 2}{appendix.Alph2}% 40
+\BOOKMARK [0][-]{section.Alph2.2}{Bibliograf\355a}{}% 41
