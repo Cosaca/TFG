@@ -28,7 +28,7 @@
               <div class="field">
                 <%= f.label :email, "Correo electrónico" %>
                   <br>
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", required: true %>
               </div>
             </div>
 
@@ -36,7 +36,7 @@
               <div class="field">
                 <%= f.label :password, "Contraseña" %>
                   <br>
-                  <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+                  <%= f.password_field :password, autocomplete: "off", class:"form-control", required: true %>
               </div>
             </div>
 

@@ -42,86 +42,97 @@
 
   <%= render 'layouts/messages' %>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 offset-md-3">
-          <div class="shadow p-3 mb-5 bg-light rounded mt-md-5">
-            <h2 class="text-center">Datos del alumno</h2>
-            <%= form_for @user do |f| %>
-              <%= hidden_field_tag "seccion", @section.id %>
-                <div class="form-group">
-                  <div class="field">
-                    <%= f.label :first_name, "Nombre" %>
-                      <br>
-                      <%= f.text_field :first_name, class:"form-control" %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="shadow p-3 mb-5 bg-light rounded mt-md-5">
+              <h2 class="text-center">Datos del alumno</h2>
+              <%= form_for @user do |f| %>
+                <% if @user.errors.any? %>
+                <div class="alert alert-danger m-md-2">
+                  <ul>
+                    <% @user.errors.full_messages.each do |msg| %>
+                      <li>
+                        <%= msg %>
+                      </li>
+                      <% end %>
+                  </ul>
                   </div>
-                </div>
+                  <% end %>
+                    <%= hidden_field_tag "seccion", @section.id %>
+                      <div class="form-group">
+                        <div class="field">
+                          <%= f.label :first_name, "Nombre" %>
+                            <br>
+                            <%= f.text_field :first_name, class:"form-control", required: true %>
+                        </div>
+                      </div>
 
-                <div class="form-group">
-                  <div class="field">
-                    <%= f.label :last_name, "Apellidos" %>
-                      <br>
-                      <%= f.text_field :last_name, class:"form-control"%>
-                  </div>
-                </div>
+                      <div class="form-group">
+                        <div class="field">
+                          <%= f.label :last_name, "Apellidos" %>
+                            <br>
+                            <%= f.text_field :last_name, class:"form-control", required: true%>
+                        </div>
+                      </div>
 
-                <div class="form-group">
-                  <div class="field">
-                    <%= f.label :username, "Nombre de usuario" %>
-                      <br>
-                      <%= f.text_field :username, class:"form-control"%>
-                  </div>
-                </div>
+                      <div class="form-group">
+                        <div class="field">
+                          <%= f.label :username, "Nombre de usuario" %>
+                            <br>
+                            <%= f.text_field :username, class:"form-control", required: true%>
+                        </div>
+                      </div>
 
-                <div class="form-group">
-                  <div class="field">
-                    <%= f.label :gender, "Sexo" %>
-                      <br>
-                      <%= f.select(:gender, ["Masculino", "Femenino", "Otro"], {include_blank: true}, {class:"form-control"})%>
-                  </div>
-                </div>
+                      <div class="form-group">
+                        <div class="field">
+                          <%= f.label :gender, "Sexo" %>
+                            <br>
+                            <%= f.select(:gender, ["Masculino", "Femenino", "Otro"], {include_blank: true}, {class:"form-control", required: true})%>
+                        </div>
+                      </div>
 
-                <div class="form-group">
-                  <div class="field">
-                    <%= f.label :age, "Edad" %>
-                      <br>
-                      <%= f.number_field :age, class:"form-control"%>
-                  </div>
-                </div>
+                      <div class="form-group">
+                        <div class="field">
+                          <%= f.label :age, "Edad" %>
+                            <br>
+                            <%= f.number_field :age, class:"form-control", required: true%>
+                        </div>
+                      </div>
 
-                <div class="form-group">
-                  <div class="field">
-                    <%= f.label :user_value_reference, "Valor de referencia" %>
-                      <br>
-                      <%= f.number_field :user_value_reference, class:"form-control", step: :any %>
-                  </div>
-                </div>
+                      <div class="form-group">
+                        <div class="field">
+                          <%= f.label :user_value_reference, "Valor de referencia" %>
+                            <br>
+                            <%= f.number_field :user_value_reference, class:"form-control", step: :any, required: true %>
+                        </div>
+                      </div>
 
-                <div class="form-group">
-                  <div class="field">
-                    <%= f.label :total_lines, "Líneas totales" %>
-                      <br>
-                      <%= f.number_field :total_lines, class:"form-control"%>
-                  </div>
-                </div>
+                      <div class="form-group">
+                        <div class="field">
+                          <%= f.label :total_lines, "Líneas totales" %>
+                            <br>
+                            <%= f.number_field :total_lines, class:"form-control", required: true%>
+                        </div>
+                      </div>
 
-                <div class="form-group">
-                  <div class="field">
-                    <%= f.label :completed_levels, "Niveles completados" %>
-                      <br>
-                      <%= f.number_field :completed_levels, class:"form-control"%>
-                  </div>
-                </div>
+                      <div class="form-group">
+                        <div class="field">
+                          <%= f.label :completed_levels, "Niveles completados" %>
+                            <br>
+                            <%= f.number_field :completed_levels, class:"form-control", required: true%>
+                        </div>
+                      </div>
 
-                <div class="actions text-center">
-                  <%= f.submit "Crear", class:"btn btn-primary btn-sm"%>
-                    <%= link_to "Volver", @section, class:"btn btn-dark btn-sm"%>
-                </div>
-                <% end %>
+                      <div class="actions text-center">
+                        <%= f.submit "Crear", class:"btn btn-primary btn-sm"%>
+                          <%= link_to "Volver", @section, class:"btn btn-dark btn-sm"%>
+                      </div>
+                      <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 </body>
 
 </html>

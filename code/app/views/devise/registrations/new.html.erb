@@ -25,50 +25,51 @@
           <div class="shadow p-3 mb-5 bg-light rounded mt-md-5">
             <h2 class="text-center">Crear cuenta</h2>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <div class="form-group">
+              <div class="form-group">
                 <div class="field">
                   <%= f.label :first_name, "Nombre" %>
-                    <%= f.text_field :first_name, autofocus:"true", class:"form-control" %>
+                    <%= f.text_field :first_name, autofocus:"true", class:"form-control", required: true %>
                 </div>
               </div>
 
               <div class="form-group">
                 <div class="field">
                   <%= f.label :last_name, "Apellidos" %>
-                    <%= f.text_field :last_name, class:"form-control" %>
+                    <%= f.text_field :last_name, class:"form-control", required: true %>
                 </div>
               </div>
 
               <div class="form-group">
                 <div class="field">
                   <%= f.label :email, "Correo electrónico" %>
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", required: true%>
                 </div>
               </div>
 
               <div class="form-group">
                 <div class="field">
                   <%= f.label :password, "Contraseña"%>
-                    <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
-                    <small id="passwordHelpBlock" class="form-text text-muted">
-                      La contraseña debe tener al menos 6 carácteres.
-                    </small>
+                    <%= f.password_field :password, autocomplete: "off", class:"form-control", required: true%>
+                      <small id="passwordHelpBlock" class="form-text text-muted">
+                        La contraseña debe tener al menos 6 carácteres.
+                      </small>
                 </div>
               </div>
 
               <div class="form-group">
                 <div class="field">
                   <%= f.label :password_confirmation, "Confirmar contraseña" %>
-                    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+                    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", required: true%>
                 </div>
               </div>
 
               <div class="actions text-center">
                 <%= f.submit "Registrarme", class:"btn btn-primary"%>
-                <br>
-                <%= render "devise/shared/links" %>
+                  <br>
+                  <%= render "devise/shared/links" %>
               </div>
               <% end %>
+
           </div>
         </div>
       </div>

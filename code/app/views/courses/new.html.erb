@@ -34,38 +34,38 @@
         </div>
       </form>
   </nav>
-  
+
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="shadow p-3 mb-5 bg-light rounded mt-md-5">
           <h2 class="text-center">Crear curso</h2>
           <%= form_for(@courses) do |f| %>
-            <div class="form-group">
-              <div class="field">
-                <%= f.text_field :title, placeholder: "Título", class:"form-control"%>
-              </div>
-            </div>
+                <div class="form-group">
+                  <div class="field">
+                    <%= f.text_field :title, placeholder: "Título", class:"form-control", required: true%>
+                  </div>
+                </div>
 
-            <div class="form-group">
-              <div class="field">
-                <%= f.text_area :body, placeholder: "Descripción", class:"form-control"%>
-              </div>
-            </div>
+                <div class="form-group">
+                  <div class="field">
+                    <%= f.text_area :body, placeholder: "Descripción", class:"form-control", required: true%>
+                  </div>
+                </div>
 
-            <div class="form-group">
-            <i class="far fa-question-circle fa-sm" style="color: grey;" data-toggle="popover" title="Información adicional" data-content="El valor de referencia
+                <div class="form-group">
+                  <i class="far fa-question-circle fa-sm" style="color: grey;" data-toggle="popover" title="Información adicional" data-content="El valor de referencia
                 es una puntuación que indica el nivel que tienen los alumnos de ese curso en diferentes competencias."></i>
-              <div class="field">
-                <%= f.number_field :value_reference, placeholder: "Valor de referencia", class:"form-control", step: :any %>
-              </div>
-            </div>
+                  <div class="field">
+                    <%= f.number_field :value_reference, placeholder: "Valor de referencia", class:"form-control", step: :any, required: true %>
+                  </div>
+                </div>
 
-            <div class="actions text-center">
-              <%= f.submit "Guardar", class:"btn btn-primary btn-sm"%>
-                <%= link_to "Volver", :courses, class:"btn btn-dark btn-sm"%>
-            </div>
-            <% end %>
+                <div class="actions text-center">
+                  <%= f.submit "Guardar", class:"btn btn-primary btn-sm"%>
+                    <%= link_to "Volver", :courses, class:"btn btn-dark btn-sm"%>
+                </div>
+                <% end %>
         </div>
       </div>
     </div>
@@ -73,9 +73,9 @@
 </body>
 
 <script>
-    $(function () {
-        $('[data-toggle="popover"]').popover()
-    })
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
 </script>
 
 </html>

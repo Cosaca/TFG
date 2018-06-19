@@ -46,18 +46,29 @@
         <div class="shadow p-3 mb-5 bg-light rounded mt-md-5">
           <h2 class="text-center">Crear sección</h2>
           <%= form_for(@section) do |f| %>
-            <%= hidden_field_tag "curso", @course.id %>
-              <div class="form-group">
-                <div class="field">
-                  <%= f.text_field :name, placeholder: "Título", class:"form-control"%>
-                </div>
-              </div>
-
-              <div class="actions text-center">
-                <%= f.submit "Guardar sección", class:"btn btn-primary btn-sm"%>
-                  <%= link_to "Volver", :back, class:"btn btn-dark btn-sm"%>
+            <% if @section.errors.any? %>
+              <div class="alert alert-danger m-md-2">
+                <ul>
+                  <% @section.errors.full_messages.each do |msg| %>
+                    <li>
+                      <%= msg %>
+                    </li>
+                    <% end %>
+                </ul>
               </div>
               <% end %>
+                <%= hidden_field_tag "curso", @course.id %>
+                  <div class="form-group">
+                    <div class="field">
+                      <%= f.text_field :name, placeholder: "Título", class:"form-control", required: true%>
+                    </div>
+                  </div>
+
+                  <div class="actions text-center">
+                    <%= f.submit "Guardar sección", class:"btn btn-primary btn-sm"%>
+                      <%= link_to "Volver", :back, class:"btn btn-dark btn-sm"%>
+                  </div>
+                  <% end %>
         </div>
       </div>
     </div>

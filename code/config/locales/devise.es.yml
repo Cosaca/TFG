@@ -49,11 +49,11 @@ es:
       failure: 'No pudimos autentificar tu cuenta de %{kind} por la siguiente razón: %{reason}.'
     mailer:
       confirmation_instructions:
-        subject: 'Instrucciones de confirmación'
+        subject: 'Instrucciones de confirmación.'
       reset_password_instructions:
-        subject: 'Instrucciones de cambio de contraseña'
+        subject: 'Instrucciones de cambio de contraseña.'
       unlock_instructions:
-        subject: 'Instrucciones de desbloqueo'
+        subject: 'Instrucciones de desbloqueo.'
   
   activerecord:
     errors:
@@ -61,20 +61,45 @@ es:
         course:
           attributes:
             body:
-              blank: 'No se ha introducido una descripción'
+              blank: 'No se ha introducido una descripción.'
             title:
-              blank: 'No se ha introducido un título'
-              taken: 'Hay otro curso con otro nombre'
+              blank: 'No se ha introducido un título.'
+              taken: 'Hay otro curso con otro nombre.'
+            value_reference:
+              blank: 'El valor de referencia no puede estar vacío.'
         teacher:
           attributes:
             current_password:
-              blank: 'No se ha introducido la contraseña actual'
-              invalid: 'La contraseña actual es incorrecta'
+              blank: 'No se ha introducido la contraseña actual.'
+              invalid: 'La contraseña actual es incorrecta.'
             email: 
-              blank: 'El correo electrónico no puede estar vacío'
-              taken: 'Ya existe una cuenta con ese correo electrónico'
+              blank: 'El correo electrónico no puede estar vacío.'
+              taken: 'Ya existe una cuenta con ese correo electrónico.'
             password:
-              blank: 'La contraseña no puede estar vacía'
-              too_short: 'La contraseña es demasiado corta'
+              blank: 'La contraseña no puede estar vacía.'
+              too_short: 'La contraseña es demasiado corta.'
             password_confirmation:
-              confirmation: 'Las contraseñas son distintas'
+              confirmation: 'Las contraseñas son distintas.'
+        user:
+          attributes:
+            first_name: 
+              blank: "Debe introducir el nombre."
+            last_name: 
+              blank: "Debe introducir el/los apellido/s."
+            username: 
+              blank: "Debe introducir el nombre de usuario."
+            age: 
+              blank: "Debe introducir la edad."
+            gender: 
+              blank: "Debe introducir el sexo."
+            total_lines: 
+              blank: "Debe introducir las líneas totales."
+            completed_levels: 
+              blank: "Debe introducir los niveles completados."
+            user_value_reference: 
+              blank: "Debe introducir un valor de referencia."
+        section:
+          attributes:
+            name:
+              blank: 'Debe introducir un nombre para la sección.'
+              taken: 'Ya exite otra sección con ese nombre, introduzca otro.'
