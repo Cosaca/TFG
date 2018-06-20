@@ -230,15 +230,11 @@ INPUT cap6.tex
 INPUT cap6.tex
 INPUT cap7.tex
 INPUT cap7.tex
-INPUT tables/table.tex
-INPUT tables/table.tex
 INPUT cap8.tex
 INPUT cap8.tex
-INPUT apendice1.tex
-INPUT apendice1.tex
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
-INPUT apendice2.tex
-INPUT apendice2.tex
+INPUT tables/table.tex
+INPUT tables/table.tex
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/eurosym/feymr10.tfm
 INPUT memtfg.bbl
 INPUT memtfg.bbl
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
@@ -254,5 +250,5 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/eurosym/feymr10.pfb
