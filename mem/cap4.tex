@@ -2,7 +2,7 @@
 % Chapter 4 : TÃ­tulo del CapÃ­tulo cuatro
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-La plataforma desarrollada para el Trabajo Fin de Grado, llamada ``CodeCharts'', está destinada a mostrar los resultados de alumnos que han realizado cursos o talleres con el fin de fomentar el aprendizaje del pensamiento computacional, de manera gráfica.
+La plataforma desarrollada para el Trabajo Fin de Grado, llamada ``CodeCharts'', está destinada a mostrar los resultados de alumnos que han realizado cursos o talleres de Pensamiento Computacional, de manera gráfica.
 Permite al profesorado crear cursos e insertar todos los datos referentes a sus alumnos en ellos.
 
 \begin{figure}[!th]
@@ -11,6 +11,8 @@ Permite al profesorado crear cursos e insertar todos los datos referentes a sus 
 \label{fig:9}
 \end{center}
 \end{figure}
+
+En las siguientes secciones se describen en detalle la arquitectura y el diseño de la aplicación.
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -33,12 +35,12 @@ Desde un principio se usó una base de datos relacional, que nos proporcionaba R
 \begin{figure}[!th]
 \begin{center}
 \includegraphics[width=0.4\textwidth]{images/base_de_datos.eps}
-\caption{Esquema de la base de datos}
+\caption{Esquema de la Base de Datos}
 \label{fig:10}
 \end{center}
 \end{figure}
 
-Como se muestra en la imagen, la estructura de la base de datos se divide en cuatro tablas:
+Como se muestra en la figura~\ref{fig:10}, la estructura de la base de datos se divide en cuatro tablas:
 
 \begin{itemize}
     \item Profesor: donde se almacena toda la información referente a los profesores que se registren en la plataforma.
@@ -58,13 +60,13 @@ CodeCharts posee algunas relevantes como:
 
 \begin{itemize}
     \item \textbf{Rails}, la gema que incluye Ruby on Rails por defecto para la utilización del framework.
-    \item \textbf{SQLite}\cite{SQLite}, para el manejo de las bases de datos, así como ActiveRecord.
-    \item \textbf{Devise}\cite{Devise}, que ofrece una solución flexible para la autenticación de los usuarios en la aplicación.
-    \item \textbf{Bootstrap}\cite{BootstrapGem}, gema que permite el diseño del front-end de la plataforma con Bootstrap.
-    \item \textbf{Will-paginate}\cite{Paginate}, de manera que si hay una gran cantidad de usuarios dentro de una sección, permita agruparlos en páginas.
-    \item \textbf{Wicked-pdf}\cite{WickedPDF}, con lo que el profesor puede descargar en formato .PDF los resultados de los alumnos.
+    \item \textbf{SQLite}~\cite{SQLite}, para el manejo de las bases de datos, así como ActiveRecord.
+    \item \textbf{Devise}~\cite{Devise}, que ofrece una solución flexible para la autenticación de los usuarios en la aplicación.
+    \item \textbf{Bootstrap}~\cite{BootstrapGem}, gema que permite el diseño del front-end de la plataforma con Bootstrap.
+    \item \textbf{Will-paginate}~\cite{Paginate}, de manera que si hay una gran cantidad de usuarios dentro de una sección, permita agruparlos en páginas.
+    \item \textbf{Wicked-pdf}~\cite{WickedPDF}, con lo que el profesor puede descargar en formato .PDF los resultados de los alumnos.
     \item \textbf{Chartkick}, herramienta que muestra en forma gráfica los resultados obtenidos en los test de los estudiantes.
-    \item \textbf{Jquery-rails}\cite{JqueryRails}, que incluye Jquery en la aplicación. 
+    \item \textbf{Jquery-rails}~\cite{JqueryRails}, que incluye Jquery en la aplicación. 
 \end{itemize}
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -101,7 +103,7 @@ En las capturas que se observan a continuación, el profesor puede tanto crearse
     \label{fig:12}%
 \end{figure}
 
-El formulario de \textbf{creación de usuario} para la plataforma es muy sencillo, dado que consta de los datos básicos que se solicitan en la gran mayoría de páginas, como su nombre y apellidos, su correo electrónico y una contraseña.
+El formulario de \textit{creación de usuario} para la plataforma es muy sencillo, dado que consta de los datos básicos que se solicitan en la gran mayoría de páginas, como su nombre y apellidos, su correo electrónico y una contraseña.
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -158,7 +160,7 @@ En el momento que el docente cree el curso o taller, podrá acceder para observa
 \end{figure}
 
 Al igual que con la página de las actividades, se le comunica al profesor que para observar las estadísticas de ese curso, tiene que añadir el lugar (Sección) donde se celebró el taller.
-Uno de los detalles a destacar en el curso sería el de "Valor de referencia", que se podría definir como un número representativo que indica el nivel que tienen los alumnos de media que realizan
+Uno de los detalles a destacar en el curso sería el de ``Valor de referencia", que se podría definir como un número representativo que indica el nivel que tienen los alumnos de media que realizan
 esa actividad.
 
 \begin{figure}[!th]
@@ -212,7 +214,7 @@ Al finalizar los retos por parte de los alumnos, el profesor obtendrá una tabla
 \end{center}
 \end{figure}
 
-Por otro lado, en el apartado de \textbf{estadísticas}, se mostrarán gráficos desarrollados con la intención de ver en qué nivel se fomenta el aprendizaje en los alumnos.
+Por otro lado, en el apartado de estadísticas, se mostrarán gráficos desarrollados con la intención de ver en qué nivel se fomenta el aprendizaje en los alumnos.
 
 \begin{figure}[!th]
 \begin{center}

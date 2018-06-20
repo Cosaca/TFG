@@ -1,10 +1,58 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Chapter 5: Conclusiones y Trabajos Futuros 
+% Chapter 5: Verificación y pruebas
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+En este capítulo se describen algunas de las pruebas realizadas para probar ciertos aspectos de la plataforma durante el desarrollo del proyecto, así como los problemas que se presentaron a la hora de realizar la aplicación.
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Este capítulo es obligatorio.
-Toda memoria de Trabajo de Fin de Grado debe incluir unas conclusiones y unas 
-líneas de trabajo futuro 
+\section{Problemas encontrados}
+\label{5:sec:1}
 
+Durante el proceso de desarrollo del Trabajo Fin de Grado, surgieron diversos problemas para llevar a cabo la integración de la herramienta para la representación gráfica de los resultados de los alumnos.
+
+En primer lugar, se decidió que la plataforma ``Code.org'' era la más completa al disponer de retos suficientes para los profesores, de manera que fomenten el aprendizaje del pensamiento computacional. A través de su repositorio en Github, donde
+se aloja toda la página, se realizó un estudio para comprobar de qué manera estaba estructurada la página y posteriormente se procedió a intentar realizar la contribución.
+
+Al comprobar que su estructura se actualizaba constantemente en el repositorio y era imposible integrar la herramienta, se diseñó un servicio web externo. Este servicio, como se explica en puntos anteriores, 
+funciona de manera similar a Code.org, con la particularidad de que se añade la información de los alumnos una vez hayan finalizado el curso en el lugar (sección) que se esté realizando.
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\section{Testeo de la aplicación}
+\label{5:sec:2}
+
+Como se describió en el apartado de ``Tecnología utilizada'', las pruebas se realizaron con RSpec. Las pruebas se ejecutaron sobre alguno de los modelos de la aplicación:
+
+\begin{itemize}
+    \item \textbf{Curso}: se validan que los atributos que se le pasan al curso de ejemplo son correctos. A su vez, si un curso tiene una o más secciones, así como insertar cursos en la aplicación.
+    \begin{figure}[!th]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/pruebas_curso.eps}
+    \caption{Pruebas realizadas al modelo de cursos}
+    \label{fig:23}
+    \end{center}
+    \end{figure}
+    
+    \item \textbf{Sección}: para este modelo se comprueba que, tanto las secciones como los usuarios en las mismas, se crean correctamente, de igual manera que se pueden eliminar los usuarios.
+    \begin{figure}[!th]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/pruebas_seccion.eps}
+    \caption{Pruebas realizadas al modelo de las secciones}
+    \label{fig:24}
+    \end{center}
+    \end{figure}
+    \item \textbf{Usuarios}: al igual que con la sección, se valida que se pueden introducir manualmente con éxito.
+\end{itemize}
+
+\newpage
+Por último, como se observa en la imagen, una vez que se ejecuta el comando ``rspec -fd'', nos muestra el título de cada una de las pruebas y en la parte inferior la cantidad de pruebas que se realizaron
+y, en caso de errores, nos lo indicaría. En este caso, todas las pruebas pasan correctamente.
+
+\begin{figure}[!th]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{images/resultado_pruebas.eps}
+\caption{Pruebas realizadas al modelo de las secciones}
+\label{fig:25}
+\end{center}
+\end{figure}
