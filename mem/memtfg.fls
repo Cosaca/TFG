@@ -235,6 +235,10 @@ INPUT cap8.tex
 INPUT tables/table.tex
 INPUT tables/table.tex
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/eurosym/feymr10.tfm
+INPUT tables/table_equipment.tex
+INPUT tables/table_equipment.tex
+INPUT tables/table_total.tex
+INPUT tables/table_total.tex
 INPUT memtfg.bbl
 INPUT memtfg.bbl
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
