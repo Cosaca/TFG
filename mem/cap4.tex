@@ -52,7 +52,7 @@ Como se muestra en la figura~\ref{fig:10}, la estructura de la base de datos se 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \subsection{Gemas utilizadas}
-\label{1:sec:2}
+\label{1:sec:3}
 
 Una de las funcionalidades y características que tiene Ruby, el lenguaje usado para desarrollar el proyecto, es la incorporación de gemas, al igual que ocurre con el entorno NodeJS y sus paquetes ``npm''.
 
@@ -77,11 +77,11 @@ CodeCharts posee algunas relevantes como:
 \subsection{Página de inicio}
 \label{1:sec:1}
 
-La primera vez que se accede a la aplicación, el profesor, que será el usuario a registrarse en la plataforma, verá una descripción de en qué consiste la aplicación y lo que ofrece al profesorado en los cursos impartidos.
+La primera vez que se accede a la aplicación, el profesor, que será el usuario a registrarse en la plataforma, verá una descripción de en qué consiste la aplicación y lo que ofrece al profesorado en los cursos impartidos (véase la figura~\ref{fig:11}).
 
 \begin{figure}[!th]
 \begin{center}
-\includegraphics[width=0.5\textwidth]{images/captura_inicio.eps}
+\includegraphics[width=0.4\textwidth]{images/captura_inicio.eps}
 \caption{Landing Page de CodeCharts}
 \label{fig:11}
 \end{center}
@@ -91,11 +91,11 @@ Dentro de está página, el profesor se podrá registrar por primera vez, o por 
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\newpage
 \subsection{Registro/Inicio de sesión}
 \label{1:sec:2}
 
-En las capturas que se observan a continuación, el profesor puede tanto crearse una cuenta, como iniciar con una ya creada, si ya se ha registrado previamente. 
+En esta sección se describe el entorno del profesor que puede tanto crearse una cuenta, como iniciar sesión con una ya creada, si ya se ha registrado previamente. 
+
 \begin{figure}[!th]%
     \centering
     \subfloat{{\includegraphics[width=5cm]{images/registro.eps} }}%
@@ -105,14 +105,14 @@ En las capturas que se observan a continuación, el profesor puede tanto crearse
     \label{fig:12}%
 \end{figure}
 
-El formulario de \textit{creación de usuario} para la plataforma es muy sencillo, dado que consta de los datos básicos que se solicitan en la gran mayoría de páginas, como su nombre y apellidos, su correo electrónico y una contraseña.
+La figura~\ref{fig:12} muestra el formulario de \textit{creación de usuario} para la plataforma, el cual es muy sencillo, dado que consta de los datos básicos que se solicitan en la gran mayoría de páginas, como su nombre y apellidos, su correo electrónico y una contraseña.
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 \subsection{Cursos creados}
 \label{1:sec:3}
 
-Una vez que el profesor ha accedido a la plataforma por primera vez, se mostrará una página como la que se observa en la figura. En ella se puede observar que se le informa al usuario que no tiene creado ningún curso/taller para sus alumnos, 
+Una vez que el profesor ha accedido a la plataforma por primera vez, se mostrará una página como la que se observa en la figura~\ref{fig:13}. En ella se puede observar que se le informa al usuario que no tiene creado ningún curso/taller para sus alumnos, 
 con lo que puede crearlos a través del botón de la parte superior izquierda.
 
 \newpage
@@ -124,7 +124,7 @@ con lo que puede crearlos a través del botón de la parte superior izquierda.
 \end{center}
 \end{figure}
 
-Los cursos creados se irán mostrando al profesor en forma de cuadrícula, de manera que el tutor sepa los cursos que tiene creados, con su información asociada (título, descripción y fecha de creación).
+Los cursos creados se irán mostrando al profesor en forma de cuadrícula, de manera que el tutor sepa los cursos que tiene creados, con su información asociada (título, descripción y fecha de creación). Esto se muestra en la figura~\ref{fig:14}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -140,7 +140,7 @@ Los cursos creados se irán mostrando al profesor en forma de cuadrícula, de ma
 \label{1:sec:4}
 
 Al profesor que haya iniciado sesión en ese momento, se le permitirá la opción de editar su perfil, a la vez que borrar su cuenta en caso de que ya no vaya a usar su cuenta en la plataforma.
-Para que cualquier cambio, como se informa en el formulario, es necesaria la contraseña actual.
+Para que cualquier cambio, como se informa en el formulario, es necesaria la contraseña actual (Figura~\ref{fig:15}).
 
 \begin{figure}[!th]
 \begin{center}
@@ -156,7 +156,7 @@ Para que cualquier cambio, como se informa en el formulario, es necesaria la con
 \subsection{Detalles del curso}
 \label{1:sec:5}
 
-En el momento que el docente cree el curso o taller, podrá acceder para observar los detalles del mismo, así como crear secciones dentro de la actividad.
+En el momento que el docente cree el curso o taller, podrá acceder para observar los detalles del mismo, así como crear secciones dentro de la actividad (Figura~\ref{fig:16}).
 
 \begin{figure}[!th]
 \begin{center}
@@ -178,7 +178,7 @@ esa actividad.
 \end{center}
 \end{figure}
 
-En la captura anterior se puede observar un curso creado de ejemplo, junto con las secciones donde se realizó el curso. Tiene tanto la posibilidad de administrar a los alumnos, como se muestra en el botón derecha, al igual que eliminarlo.
+En la figura~\ref{fig:17} se puede observar un curso creado de ejemplo, junto con las secciones donde se realizó el curso. Tiene tanto la posibilidad de administrar a los alumnos, como se muestra en el botón derecha, al igual que eliminarlo.
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -198,21 +198,24 @@ El objetivo final de la plataforma es que el profesor, cuando inserte los result
 \begin{figure}[!th]
 \begin{center}
 \includegraphics[width=0.3\textwidth]{images/insertar_alumnos.eps}
+\caption{Introducción de alumnos de manera manual}
 \label{fig:19}
 \end{center}
 \end{figure}
 
-Se pueden registrar alumnos en la plataforma tanto de manera manual (de uno en uno), como a través de un fichero .json con la información requerida, entre la que se encuentra el nombre, apellidos, edad, etc. Entre los datos más relevantes,
+\newpage
+Se pueden registrar alumnos en la plataforma tanto de manera manual de uno en uno (véase la figura~\ref{fig:19}), como a través de un fichero .JSON (véase la figura~\ref{fig:20}) con la información requerida, entre la que se encuentra el nombre, apellidos, edad, etc. Entre los datos más relevantes,
 los niveles completados en ese reto, así como las líneas de código utilizadas en total.
 
 \begin{figure}[!th]
 \begin{center}
 \includegraphics[width=0.7\textwidth]{images/subir_fichero.eps}
+\caption{Subir ficheros de alumnos}
 \label{fig:20}
 \end{center}
 \end{figure}
 
-Al finalizar los retos por parte de los alumnos, el profesor obtendrá una tabla con toda la información de cada uno paginados, de manera que la tabla no se vuelva muy extensa al matricular a muchos alumnos, como se muestra a continuación.
+Al finalizar los retos por parte de los alumnos, el profesor obtendrá una tabla con toda la información de cada uno paginados, de manera que la tabla no se vuelva muy extensa al matricular a muchos alumnos, como se muestra en la figura~\ref{fig:21}.
 
 \begin{figure}[!th]
 \begin{center}
@@ -233,4 +236,4 @@ Por otro lado, en el apartado de estadísticas, se mostrarán gráficos desarrol
 \end{center}
 \end{figure}
 
-En la imagen anterior se pueden observar algunos de los resultados obtenidos en forma de gráficos por los alumnos en ese curso.
+En la figura~\ref{fig:22} se pueden observar algunos de los resultados obtenidos en forma de gráficos por los alumnos en ese curso.

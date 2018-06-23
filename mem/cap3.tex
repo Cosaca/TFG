@@ -9,7 +9,7 @@ Después de realizar una selección entre las diversas tecnologías que se utili
 \section{Ruby on Rails}
 \label{3:sec:1}
 
-El ``\textit{Framework}'' en un proyecto se puede entender como el entorno de trabajo usado para desarrollar la aplicación web, es decir, una estructura dividido en capas que indica qué programas deben o pueden ser construidos y de qué manera se relacionan.
+El ``\textit{Framework}'' en un proyecto se puede entender como el entorno de trabajo usado para desarrollar la aplicación web, es decir, una estructura dividida en capas que indica qué programas deben o pueden ser construidos y de qué manera se relacionan.
 
 En este proyecto, se ha usado Ruby on Rails~\cite{Rails}, un entorno Open Source (de código abierto) para el diseño de toda la plataforma. Rails fue lanzado en 2003 por David Heinemeier Hansson y desde ese momento se ha ido extendiendo entre la comunidad de programadores, consiguiendo así una expansión y una gran comunidad.
 
@@ -24,7 +24,8 @@ En este proyecto, se ha usado Ruby on Rails~\cite{Rails}, un entorno Open Source
 Alguna de las características que definen a este \textit{framework} son:
 
 \begin{itemize}
-    \item Usa el estilo de arquitectura Modelo-Vista-Controlador (MVC), que separa los datos, la lógica y la interfaz de la aplicación.
+    \item Usa el estilo de arquitectura Modelo-Vista-Controlador (MVC), que separa los datos, la lógica y la interfaz de la aplicación. Esto quiere decir que los componentes de la aplicación se separan, de manera que si se quiere
+    modificar algo en alguna parte del código, no afecte a ninguna otra parte del mismo.
     \item Evita la repetición de código.
     \item \textit{Framework} con posibilidad de validación de formularios y manejo de sesiones.
 \end{itemize}
@@ -93,14 +94,6 @@ Algunas de las características que lo definen son:
 
 El objetivo principal del proyecto fue la representación gráfica de los resultados de los alumnos una vez que realizaban ciertos cursos o talleres. Al valorar diferentes posibilidades, se decidió que Chartkick~\cite{Chartkick} era la más asequible, 
 debido a su compatibilidad con Ruby (y otros lenguajes como Python, JavaScript, etc.) y su variedad de representaciones. 
-
-\begin{figure}[!th]
-\begin{center}
-\includegraphics[width=0.5\textwidth]{images/logo_chartkick.eps}
-\caption{Captura de ejemplo de la aplicación}
-\label{fig:8}
-\end{center}
-\end{figure}
 
 Esta herramienta permite al usuario, a partir de unos datos dados, mostrar en la aplicación diferentes gráficos con solo una línea de código.
 
