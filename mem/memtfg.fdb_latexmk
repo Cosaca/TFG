@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex memtfg"] 1529745253 "memtfg.aux" "memtfg.bbl" "memtfg" 1529745256
+["bibtex memtfg"] 1529753910 "memtfg.aux" "memtfg.bbl" "memtfg" 1529754406
   "/usr/local/texlive/2017/texmf-dist/bibtex/bst/base/plain.bst" 1480098433 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "memtfg.aux" 1529745255 15109 5e66b1117d50b934f3af39a05b06fab2 ""
+  "memtfg.aux" 1529754405 15109 88919d89ff7310e1d4e0be857758de96 ""
   "memtfg.bib" 1529488831 4641 7db31ffaa812ddb4f23086079ad699b7 ""
   (generated)
   "memtfg.blg"
   "memtfg.bbl"
-["pdflatex"] 1529745253 "/Users/samuel/Desktop/Memoria/TFG/mem/memtfg.tex" "memtfg.pdf" "memtfg" 1529745256
+["pdflatex"] 1529754404 "/Users/samuel/Desktop/Memoria/TFG/mem/memtfg.tex" "memtfg.pdf" "memtfg" 1529754406
   "/Users/samuel/Desktop/Memoria/TFG/mem/memtfg.tex" 1529686543 13371 cb3f5a11473c1da031c0dbb9a021c224 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
@@ -102,8 +102,8 @@
   "cap3.tex" 1529687436 5655 767013bb2abb9929b184c65efb2e6f74 ""
   "cap4.tex" 1529744942 10659 a660c697c63355824fbe904e350a8028 ""
   "cap5.tex" 1529492476 3393 9f4d8e0c182d172db893dbba6e3cea0e ""
-  "cap6.tex" 1529745248 2032 ab46bd1bc85e37d86c8458758b32bc62 ""
-  "cap7.tex" 1529499393 1980 58993d872291d05c3b463c5634615bf7 ""
+  "cap6.tex" 1529754068 2308 7856707bbc50fe333fe6596788e00ec1 ""
+  "cap7.tex" 1529754404 2120 3ede00f7b21249155ec005c260b3b7bc ""
   "cap8.tex" 1529585051 807 40b2b402af0d6ce8021d95b308365566 ""
   "images/base_de_datos.eps" 1529233076 288477 81c378716f2c3e2afcf6e73cf1325604 ""
   "images/by-nc_88x31.eps" 1520358624 7301 1435a2d3c4754ec0bd56ca804b46f1b9 ""
@@ -132,13 +132,13 @@
   "images/resultado_pruebas.eps" 1529431210 4717760 140d0a7caaf2cb10fa104df29794e528 ""
   "images/subir_fichero.eps" 1529254535 6838439 d9fec824e1bcb8611f61b31f73fe4496 ""
   "images/tabla_alumnos.eps" 1529342960 18753316 4fa8167d3b78cf82d56458333683f2e4 ""
-  "memtfg.aux" 1529745255 15109 5e66b1117d50b934f3af39a05b06fab2 ""
-  "memtfg.bbl" 1529745253 3175 9165b1dc5df8379fdb5b577127497bac "bibtex memtfg"
-  "memtfg.lof" 1529745255 2718 db646b27c88db804a54462e74dbff4b5 ""
-  "memtfg.lot" 1529745255 687 43cff5b700e924baf7f6f221e98225e0 ""
-  "memtfg.out" 1529745255 2514 8407662cc1100c1cb846db25f3bc833e ""
+  "memtfg.aux" 1529754405 15109 88919d89ff7310e1d4e0be857758de96 ""
+  "memtfg.bbl" 1529753910 3175 9165b1dc5df8379fdb5b577127497bac "bibtex memtfg"
+  "memtfg.lof" 1529754405 2718 db646b27c88db804a54462e74dbff4b5 ""
+  "memtfg.lot" 1529754405 687 05def840bc6abc68575b413a4e0b6def ""
+  "memtfg.out" 1529754405 2514 8407662cc1100c1cb846db25f3bc833e ""
   "memtfg.tex" 1529686543 13371 cb3f5a11473c1da031c0dbb9a021c224 ""
-  "memtfg.toc" 1529745255 3221 3f2ed4f922e0b8c37fcd00be2e73d796 ""
+  "memtfg.toc" 1529754405 3221 2a848fe628e634ea3d83ec8c73657fe8 ""
   "multirow.sty" 1520358624 7374 f7c1f13fc632dd5c9b220a247d233082 ""
   "spanish.ldf" 1520358624 21612 5772dec1e643132e9ec6e1b45cbe2ddb ""
   "tables/table.tex" 1529587452 776 93a0c15032accb0df2a9486aedcb48dc ""
@@ -148,8 +148,8 @@
   (generated)
   "memtfg.pdf"
   "memtfg.aux"
+  "memtfg.log"
+  "memtfg.lot"
   "memtfg.toc"
   "memtfg.out"
   "memtfg.lof"
-  "memtfg.log"
-  "memtfg.lot"
