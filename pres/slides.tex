@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{breakurl}
 \usepackage{etoolbox}
+\usepackage{subfig}
 
 \newcommand{\beamer}{\textsc{beamer}}
 \newtheorem{definicion}{Definición}
@@ -197,92 +198,144 @@ Se caracteriza por:
 
 \end{frame}
 
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++     
-\section{Procedimiento experimental}
-
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \begin{frame}
-\frametitle{Procedimiento experimental}
+\frametitle{Tecnologías utilizadas}
 
-Ha de contar con secciones para la descripción de los experimentos y del material.
-También deber haber una sección para los resultados obtenidos y una última de
-análisis de los resultados obtenidos.
+Para la visualización de los resultados de los cursos de manera gráfica, se usó la herramienta \textbf{Chartkick}, por su compatibilidad con Ruby (y otros lenguajes como Python, Javascript, etc) y su variedad
+de representaciones.
 
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-\subsection{Descripción de los experimentos}
-
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-\begin{frame}
-\frametitle{Generación de datos aleatoria}
-
-\begin{ejemplo}
-  \begin{itemize}
-    \item <1-> Con semilla 1 
-    \item <2-> Con semilla 10 
-    \item <3> Sin semilla 
-  \end{itemize}
-\end{ejemplo}
-
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-\subsection{Descripción del material}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-\begin{frame}
-\frametitle{Hardware y Software}
-
-\begin{ejemplo}
-  \begin{enumerate}
-    \item
-      Descripción del hardware 
-      \pause
-
-    \item
-      Descripción del software 
-  \end{enumerate}
-\end{ejemplo}
-
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-\subsection{Resultados obtenidos}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-\begin{frame}
-\frametitle{Medidas de tiempo y Velocidad}
-
-%------------------------------------------------------------------------------
-\input{tables/table.tex}
-%------------------------------------------------------------------------------
-
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-
-\subsection{Análisis de los resultados}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-\begin{frame}
-\frametitle{Diagrama del tiempo y la velocidad}
-
-%------------------------------------------------------------------------------
-\begin{figure}[!th]
-\begin{center}
-\includegraphics[width=0.75\textwidth]{img/figura1.eps}
-\caption{Ejemplo de figura}
-\label{fig:1}
-\end{center}
+\begin{figure}
+    \includegraphics[width=0.4\textwidth]{img/logo_chartkick.eps}
 \end{figure}
-%------------------------------------------------------------------------------
+
+\end{frame}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\section{Plataforma CodeCharts}
+
+\begin{frame}
+\frametitle{Introducción}
+
+La plataforma CodeCharts se ha diseñado con la intención de simular el funcionamiento de Code.org, de manera que se aporte una representación gráfica a los resultados
+de los cursos.
+
+\begin{block}{Características}
+    \begin{itemize}
+        \item Creación de cursos y sus consiguientes secciones (lugares donde se celebra dicho curso).
+        \item Gestión de los alumnos dentro de cada sección.
+        \item Representación gráfica de los resultados de los talleres/cursos.
+        \item Descarga de informe con las representaciones correspondientes a ese curso o sección.
+    \end{itemize}
+\end{block}
 
 \end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 
-
-\section{Conclusiones}
+\subsection{Arquitectura de la aplicación}
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 \begin{frame}
-\frametitle{Conclusiones}
+\frametitle{Arquitectura de la aplicación}
+
+CodeCharts fue desarrollado en Ruby on Rails, como se menciona en diapositivas anteriores, siguiendo la estructura MVC (Modelo-Vista-Controlador). 
+
+Desde un principio se usó una base de datos relacional, que nos proporcionaba Rails con ActiveRecord y SQLite.
+
+\begin{figure}
+    \includegraphics[width=0.3\textwidth]{img/base_de_datos.eps}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+\subsection{Diseño de la aplicación}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+\begin{frame}
+\frametitle{Diseño de la aplicación}
+
+La primera vez que se accede a la aplicación, el profesor, que será el que se registre en la aplicación, verá una descripción de en qué consiste la plataforma y lo que ofrece al profesorado
+en los cursos impartidos.
+
+\begin{figure}
+    \includegraphics[width=0.5\textwidth]{img/captura_inicio.eps}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\begin{frame}
+\frametitle{Diseño de la aplicación}
+
+El usuario tendrá tanto la posibilidad de crearse una cuenta y, en caso de estar registrado previamente, podrá iniciar sesión con la misma.
+
+\begin{figure}[!th]%
+    \centering
+    \subfloat{{\includegraphics[width=4cm]{img/registro.eps} }}%
+    \qquad
+    \subfloat{{\includegraphics[width=4cm]{img/inicio_sesion.eps} }}%
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\begin{frame}
+\frametitle{Diseño de la aplicación}
+
+Una vez que el profesor haya accedido a la plataforma, tendrá a su disposición los cursos que ha creado previamente en forma de cuadrícula, con su información asociada.
+
+\begin{figure}
+    \includegraphics[width=0.6\textwidth]{img/cursos_creados.eps}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\begin{frame}
+\frametitle{Diseño de la aplicación}
+
+Los detalles del curso, junto con las secciones impartidas del mismo, se pueden observar en los detalles del curso.
+
+\begin{figure}
+    \includegraphics[width=0.6\textwidth]{img/curso_secciones.eps}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\begin{frame}
+\frametitle{Diseño de la aplicación}
+
+La representación gráfica de los resultados de los cursos/talleres estarán disponibles tanto para verlos en la plataforma, como descargar un informe con los mismos en formato PDF.
+
+\begin{figure}
+    \includegraphics[width=0.6\textwidth]{img/estadisticas_seccion.eps}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+\section{Pruebas y verificación}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+\begin{frame}
+\frametitle{Pruebas y verificación}
+
+Para llevar a cabo el \textit{testeo} de la plataforma, se usó RSpec, una herramienta utilizada con más frecuencia en el entorno de producción. Se ha verificado algunos de los modelos en la plataforma,
+como son las secciones, cursos y usuarios.
+
+\begin{figure}[!th]%
+    \centering
+    \subfloat{{\includegraphics[width=5cm]{img/pruebas_curso.eps} }}%
+    \qquad
+    \subfloat{{\includegraphics[width=5cm]{img/pruebas_seccion.eps} }}%
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+\section{Summary and conclusions}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+\begin{frame}
+\frametitle{Summary and conclusions}
 
 \begin{ejemplo}
   \begin{enumerate}
