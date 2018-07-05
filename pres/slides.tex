@@ -10,7 +10,7 @@
 
 \newcommand{\beamer}{\textsc{beamer}}
 \newtheorem{definicion}{Definición}
-\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{ejemplo}{Conclusions}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title[Defensa Oral TFG]{Análisis de los resultados de los sistemas de entrenamiento del Pensamiento Computacional}
@@ -101,7 +101,7 @@ Existen diversas plataformas dedicadas a divulgar de alguna forma este tipo de p
 
 \begin{alertblock}{Problemas}
     \begin{itemize}
-        \item No se supo como acceder a la \textbf{base de datos} de la plataforma de Code.org, junto con la constante actualización de su estructura de su página, hizo imposible su integración
+        \item Al no saber como acceder a la \textbf{base de datos} de la plataforma de Code.org, junto con la constante actualización de la estructura de su página en Github, hizo imposible su integración.
     \end{itemize}
 \end{alertblock}
 
@@ -111,11 +111,10 @@ Existen diversas plataformas dedicadas a divulgar de alguna forma este tipo de p
 
 \frametitle{Objetivos }
 
-\begin{itemize}
-\item
-Para solventar el problema del acceso a la base de datos de la página de Code.org, se optó por diseñar una aplicación que simulara la visualización de los resultados
-de los alumnos.
-\end{itemize}
+\begin{exampleblock}{Solución}
+    Para solventar el problema del acceso a la base de datos de la página de Code.org, se optó por diseñar una aplicación que simulara la visualización de los resultados
+    de los alumnos.
+\end{exampleblock}
 
 \begin{block}{Plataforma}
     Algunas de las características que conforman la aplicación son:
@@ -303,7 +302,7 @@ Los detalles del curso, junto con las secciones impartidas del mismo, se pueden 
 \begin{frame}
 \frametitle{Diseño de la aplicación}
 
-La representación gráfica de los resultados de los cursos/talleres estarán disponibles tanto para verlos en la plataforma, como descargar un informe con los mismos en formato PDF.
+La representación gráfica de los resultados de los cursos/talleres estarán disponibles tanto para observarlos en la plataforma, como para descargar en formato PDF informe con los mismos.
 
 \begin{figure}
     \includegraphics[width=0.6\textwidth]{img/estadisticas_seccion.eps}
@@ -318,8 +317,8 @@ La representación gráfica de los resultados de los cursos/talleres estarán di
 \begin{frame}
 \frametitle{Pruebas y verificación}
 
-Para llevar a cabo el \textit{testeo} de la plataforma, se usó RSpec, una herramienta utilizada con más frecuencia en el entorno de producción. Se ha verificado algunos de los modelos en la plataforma,
-como son las secciones, cursos y usuarios.
+Para llevar a cabo el ''\textit{testeo}'' de la plataforma, se usó RSpec, una herramienta utilizada con más frecuencia en el entorno de producción. Permite la verificación de diversas pruebas en modelos,
+controladores, etc.
 
 \begin{figure}[!th]%
     \centering
@@ -329,7 +328,21 @@ como son las secciones, cursos y usuarios.
 \end{figure}
 
 \end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\begin{frame}
+\frametitle{Pruebas y verificación}
+
+\begin{exampleblock}{Tests}
+    Se realizaron las pruebas sobre algunos de los \textbf{modelos} de la aplicación (Curso, Secciones y Usuarios), que se comprueba que se pasan con éxito, como se observa en la figura.
+\end{exampleblock}
+
+\begin{figure}
+    \includegraphics[width=0.4\textwidth]{img/resultado_pruebas.eps}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 \section{Summary and conclusions}
 
@@ -340,10 +353,10 @@ como son las secciones, cursos y usuarios.
 \begin{ejemplo}
   \begin{enumerate}
     \item
-      Conclusión 1
+    The developed platform, called CodeCharts, aims to make it easier for teachers to visualize the progress of their students, so that once the students have made the challenges, they can see if the courses or workshops are helping in the future promotioning computational thinking when facing activities.
       \pause
     \item
-      Conclusión 2
+    One of the features of this application is that it is designed so that it is only used by the teaching staff, for that reason it has been developed for its use in the most simple and comfortable way.
   \end{enumerate}
 \end{ejemplo}
 

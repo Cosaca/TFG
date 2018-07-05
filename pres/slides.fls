@@ -452,6 +452,15 @@ INPUT ./img/pruebas_seccion.eps
 INPUT ./img/pruebas_seccion-eps-converted-to.pdf
 INPUT ./img/pruebas_seccion-eps-converted-to.pdf
 INPUT ./img/pruebas_seccion-eps-converted-to.pdf
+INPUT img/resultado_pruebas.eps
+INPUT ./img/resultado_pruebas.eps
+INPUT ./img/resultado_pruebas.eps
+INPUT ./img/resultado_pruebas-eps-converted-to.pdf
+INPUT ./img/resultado_pruebas-eps-converted-to.pdf
+INPUT ./img/resultado_pruebas.eps
+INPUT ./img/resultado_pruebas-eps-converted-to.pdf
+INPUT ./img/resultado_pruebas-eps-converted-to.pdf
+INPUT ./img/resultado_pruebas-eps-converted-to.pdf
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
