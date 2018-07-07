@@ -310,6 +310,7 @@ INPUT ./img/logo_nuevo-eps-converted-to.pdf
 INPUT ./img/logo_nuevo-eps-converted-to.pdf
 INPUT ./img/logo_nuevo-eps-converted-to.pdf
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map
@@ -323,9 +324,20 @@ INPUT slides.toc
 INPUT slides.toc
 INPUT slides.toc
 INPUT slides.toc
+INPUT slides.toc
+INPUT slides.toc
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT img/estructura_code.eps
+INPUT ./img/estructura_code.eps
+INPUT ./img/estructura_code.eps
+INPUT ./img/estructura_code-eps-converted-to.pdf
+INPUT ./img/estructura_code-eps-converted-to.pdf
+INPUT ./img/estructura_code.eps
+INPUT ./img/estructura_code-eps-converted-to.pdf
+INPUT ./img/estructura_code-eps-converted-to.pdf
+INPUT ./img/estructura_code-eps-converted-to.pdf
 INPUT img/logo_rails.eps
 INPUT ./img/logo_rails.eps
 INPUT ./img/logo_rails.eps
@@ -490,6 +502,7 @@ INPUT ./slides.out
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
